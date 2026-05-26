@@ -3,28 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Cape Leisure Club - Mamba Point | Digital Menu</title>
-  <meta name="description" content="Browse the digital menu for Cape Leisure Club - Mamba Point. Experience our selection of Starters, Lebanese Mezza, Charcoal Grills, Burgers, and African dishes. Settle your bill instantly.">
+  <title>Cape Leisure Club - Mamba Point | Luxury Digital Menu</title>
+  <meta name="description" content="Experience the premium digital menu of Cape Leisure Club - Mamba Point, Freetown. Browse our local steaks, fresh lobsters, traditional Lebanese mezza, and pay securely online.">
   <meta name="robots" content="index, follow">
   
-  <!-- Preconnect to Google Fonts -->
+  <!-- Preconnect and Load Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
   
   <style>
-    /* DESIGN SYSTEM & VISUAL SPECIFICATION */
+    /* DESIGN SYSTEM & VISUAL SPECIFICATION - MODERN GALLERY LUXURY */
     :root {
-      --bg: #FFFFFF;
-      --surface: #FAFAFA;
-      --text-primary: #111111;
-      --text-muted: #666666;
-      --border: #EAEAEA;
-      --accent: #111111;
+      --bg-primary: #FFFFFF;
+      --bg-secondary: #FDFCFB; /* Soft warm ivory */
+      --surface-glass: rgba(250, 250, 250, 0.85);
+      --text-primary: #1A1A1A; /* Crisp charcoal */
+      --text-muted: #757575;
+      --border-light: #EAEAEA;
+      --accent-gold: #C5A880; /* Elegant champagne gold */
+      --accent-gold-dark: #A88D65;
+      --shadow-luxury: 0 15px 35px rgba(197, 168, 128, 0.08), 0 5px 15px rgba(0, 0, 0, 0.02);
       
       --font-serif: 'Playfair Display', Georgia, serif;
-      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      
+      --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       --safe-bottom: env(safe-area-inset-bottom, 0px);
     }
 
@@ -37,99 +39,146 @@
 
     html {
       scroll-behavior: smooth;
-      background-color: var(--bg);
+      background-color: var(--bg-secondary);
       color: var(--text-primary);
       font-family: var(--font-sans);
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
     }
 
     body {
       min-height: 100vh;
       overflow-x: hidden;
-      background-color: var(--bg);
+      background: linear-gradient(180deg, #FFFFFF 0%, #FAF8F5 100%);
+      padding-bottom: 60px;
     }
 
-    /* TYPOGRAPHY */
-    h1, h2, h3, h4 {
-      font-weight: 400;
-      color: var(--text-primary);
+    /* DECORATIVE AMBIENT BACKGROUND GLOWS */
+    .ambient-glow-1 {
+      position: absolute;
+      top: 10%;
+      right: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(197, 168, 128, 0.05) 0%, rgba(255, 255, 255, 0) 70%);
+      pointer-events: none;
+      z-index: -1;
     }
 
-    p {
-      color: var(--text-muted);
+    .ambient-glow-2 {
+      position: absolute;
+      top: 50%;
+      left: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(197, 168, 128, 0.03) 0%, rgba(255, 255, 255, 0) 70%);
+      pointer-events: none;
+      z-index: -1;
     }
 
-    /* HEADER BLOCK */
-    .header {
-      padding: 48px 24px 24px 24px;
+    /* HERO & HEADER SECTION */
+    .hero-banner {
+      position: relative;
+      background: linear-gradient(135deg, #111111 0%, #2A2520 100%);
+      color: #FFFFFF;
+      padding: 64px 24px 48px 24px;
       text-align: center;
-      background: var(--bg);
-      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+      border-bottom: 2px solid var(--accent-gold);
+    }
+
+    .hero-banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 50% 50%, rgba(197, 168, 128, 0.15) 0%, transparent 80%);
+      pointer-events: none;
     }
 
     .header-logo-container {
-      margin-bottom: 16px;
+      margin-bottom: 20px;
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 12px;
+      border-radius: 50%;
+      border: 1px solid rgba(197, 168, 128, 0.2);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      transition: transform 0.4s ease;
+    }
+
+    .header-logo-container:hover {
+      transform: scale(1.05) rotate(5deg);
     }
 
     .header-logo {
-      max-height: 70px;
+      max-height: 80px;
       width: auto;
       object-fit: contain;
+      filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0,0,0,0.2)); /* Turn logo white with subtle shadow */
     }
 
     .brand-title {
       font-family: var(--font-serif);
-      font-size: 28px;
+      font-size: 32px;
       font-weight: 500;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.12em;
       line-height: 1.2;
-      margin-bottom: 4px;
+      margin-bottom: 8px;
       text-transform: uppercase;
+      color: #FFFFFF;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     }
 
     .brand-subtitle {
       font-family: var(--font-serif);
-      font-size: 16px;
+      font-size: 18px;
       font-style: italic;
-      color: var(--text-muted);
-      margin-bottom: 16px;
-      letter-spacing: 0.02em;
+      color: var(--accent-gold);
+      margin-bottom: 24px;
+      letter-spacing: 0.05em;
     }
 
     .brand-meta {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 8px;
-      font-size: 12px;
-      letter-spacing: 0.05em;
-      color: var(--text-muted);
-      text-transform: uppercase;
+      gap: 12px;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: #D1C7BD;
     }
 
     .tin-number {
-      font-weight: 500;
-      letter-spacing: 0.1em;
+      font-weight: 400;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 4px 10px;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .phone-link {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      color: var(--text-primary);
+      gap: 8px;
+      color: #FFFFFF;
       text-decoration: none;
       font-weight: 600;
-      padding: 6px 12px;
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      background: var(--surface);
-      transition: all 0.2s ease;
+      padding: 8px 18px;
+      border: 1px solid var(--accent-gold);
+      border-radius: 25px;
+      background: rgba(197, 168, 128, 0.15);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 15px rgba(197, 168, 128, 0.1);
     }
 
     .phone-link:hover {
-      background: #f0f0f0;
-      border-color: #d1d1d1;
+      background: var(--accent-gold);
+      color: #111111;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(197, 168, 128, 0.3);
     }
 
     .phone-icon {
@@ -137,57 +186,63 @@
       height: 14px;
     }
 
-    /* SEARCH BAR (MINIMALIST) */
+    /* SEARCH BAR */
     .search-container {
-      max-width: 600px;
-      margin: 24px auto 0 auto;
-      padding: 0 16px;
+      max-width: 680px;
+      margin: -24px auto 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 10;
     }
 
     .search-wrapper {
       position: relative;
       width: 100%;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+      border-radius: 12px;
     }
 
     .search-input {
       width: 100%;
-      padding: 12px 16px 12px 40px;
+      padding: 16px 16px 16px 48px;
       font-family: var(--font-sans);
       font-size: 14px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      background: var(--surface);
+      font-weight: 400;
+      border: 1px solid rgba(197, 168, 128, 0.3);
+      border-radius: 12px;
+      background: #FFFFFF;
       color: var(--text-primary);
       outline: none;
-      transition: all 0.2s ease;
+      transition: all 0.3s ease;
     }
 
     .search-input:focus {
-      background: var(--bg);
-      border-color: var(--text-primary);
+      border-color: var(--accent-gold);
+      box-shadow: 0 10px 30px rgba(197, 168, 128, 0.12);
     }
 
     .search-icon {
       position: absolute;
-      left: 14px;
+      left: 18px;
       top: 50%;
       transform: translateY(-50%);
-      width: 16px;
-      height: 16px;
-      color: var(--text-muted);
+      width: 18px;
+      height: 18px;
+      color: var(--accent-gold);
       pointer-events: none;
     }
 
-    /* CATEGORY NAVIGATION */
+    /* CATEGORY NAVIGATION - FLOATING GLASS STYLE */
     .category-nav {
       position: sticky;
       top: 0;
-      background: rgba(255, 255, 255, 0.96);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-light);
       z-index: 100;
       width: 100%;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
     }
 
     .category-nav-scroll {
@@ -195,27 +250,27 @@
       overflow-x: auto;
       white-space: nowrap;
       -webkit-overflow-scrolling: touch;
-      scrollbar-width: none; /* Firefox */
-      padding: 14px 16px;
-      gap: 20px;
+      scrollbar-width: none;
+      padding: 16px 24px;
+      gap: 24px;
     }
 
     .category-nav-scroll::-webkit-scrollbar {
-      display: none; /* Safari/Chrome */
+      display: none;
     }
 
     .nav-tab {
       display: inline-block;
       font-family: var(--font-sans);
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 500;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       text-decoration: none;
       color: var(--text-muted);
-      padding: 4px 0;
+      padding: 6px 0;
       position: relative;
-      transition: color 0.2s ease;
+      transition: all 0.3s ease;
       cursor: pointer;
     }
 
@@ -224,8 +279,8 @@
     }
 
     .nav-tab.active {
-      color: var(--text-primary);
-      font-weight: 600;
+      color: var(--accent-gold-dark);
+      font-weight: 700;
     }
 
     .nav-tab::after {
@@ -235,7 +290,7 @@
       left: 0;
       width: 100%;
       height: 2px;
-      background-color: var(--text-primary);
+      background-color: var(--accent-gold);
       transform: scaleX(0);
       transform-origin: right;
       transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -248,9 +303,9 @@
 
     /* MENU GRID CONTAINER */
     .menu-container {
-      max-width: 720px;
+      max-width: 680px;
       margin: 0 auto;
-      padding: 16px 24px 140px 24px; /* Generous bottom padding for FAB & notch */
+      padding: 24px 24px 140px 24px;
     }
 
     @supports (padding-bottom: env(safe-area-inset-bottom)) {
@@ -261,83 +316,130 @@
 
     /* MENU SECTION */
     .menu-section {
-      scroll-margin-top: 60px; /* Offset for sticky nav bar */
-      padding-top: 16px;
+      scroll-margin-top: 70px; /* Offset for sticky nav bar */
+      margin-bottom: 48px;
     }
 
     .section-header {
       display: flex;
       align-items: center;
-      margin: 40px 0 20px 0;
-      position: relative;
+      margin: 40px 0 24px 0;
     }
 
     .section-title {
       font-family: var(--font-serif);
-      font-size: 22px;
+      font-size: 24px;
       font-weight: 500;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--text-primary);
-      background: var(--bg);
-      padding-right: 16px;
-      z-index: 2;
+      padding-right: 20px;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background-color: var(--accent-gold);
     }
 
     .section-line {
       flex: 1;
       height: 1px;
-      background-color: var(--border);
-      z-index: 1;
+      background: linear-gradient(90deg, var(--border-light) 0%, rgba(234, 234, 234, 0) 100%);
     }
 
     .menu-list {
       display: flex;
       flex-direction: column;
+      gap: 16px;
     }
 
-    /* MENU ITEM */
+    /* GLASSMORPHIC MENU ITEM CARD */
     .menu-item {
-      padding: 20px 0;
-      border-bottom: 1px solid var(--border);
+      background: var(--surface-glass);
+      border: 1px solid rgba(197, 168, 128, 0.08);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: var(--shadow-luxury);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .menu-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background: var(--accent-gold);
+      opacity: 0;
       transition: opacity 0.3s ease;
     }
 
-    .menu-item:last-child {
-      border-bottom: none;
+    .menu-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px rgba(197, 168, 128, 0.12), 0 4px 10px rgba(0, 0, 0, 0.01);
+      border-color: rgba(197, 168, 128, 0.25);
+    }
+
+    .menu-item:hover::before {
+      opacity: 1;
     }
 
     .menu-item-header {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
+    }
+
+    .menu-item-title-block {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .item-number {
+      font-family: var(--font-serif);
+      font-size: 12px;
+      color: var(--accent-gold-dark);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      margin-bottom: 2px;
     }
 
     .menu-item-title {
       font-family: var(--font-sans);
       font-size: 15px;
       font-weight: 600;
-      line-height: 1.3;
+      line-height: 1.4;
       color: var(--text-primary);
-      margin-right: 16px;
+      letter-spacing: -0.01em;
     }
 
     .menu-item-price {
-      font-family: var(--font-sans);
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--text-primary);
+      font-family: var(--font-serif);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--accent-gold-dark);
       white-space: nowrap;
+      margin-left: 16px;
+      letter-spacing: 0.02em;
     }
 
     .menu-item-desc {
       font-family: var(--font-sans);
-      font-size: 13.5px;
-      line-height: 1.5;
+      font-size: 13px;
+      line-height: 1.6;
       color: var(--text-muted);
       font-weight: 400;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
     }
 
     .menu-item-footer {
@@ -356,14 +458,14 @@
       font-size: 9px;
       font-weight: 700;
       letter-spacing: 0.05em;
-      padding: 2px 6px;
+      padding: 3px 8px;
       border-radius: 4px;
       text-transform: uppercase;
     }
 
     .tag-v {
       background-color: #E8F5E9;
-      color: #2E7D32;
+      color: #1B5E20;
     }
 
     .tag-gf {
@@ -384,16 +486,16 @@
       transform: translateX(-50%);
       z-index: 999;
       background: #FFFFFF;
-      border: 1px solid var(--border);
+      border: 1px solid var(--accent-gold);
       border-radius: 30px;
-      padding: 16px 36px;
+      padding: 18px 44px;
       cursor: pointer;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      box-shadow: 0 10px 40px rgba(197, 168, 128, 0.25);
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 10px;
     }
 
     @supports (bottom: env(safe-area-inset-bottom)) {
@@ -403,8 +505,18 @@
     }
 
     .pay-fab:hover {
-      transform: translateX(-50%) translateY(-2px);
-      box-shadow: 0 14px 35px rgba(0,0,0,0.12);
+      transform: translateX(-50%) translateY(-3px);
+      box-shadow: 0 15px 45px rgba(197, 168, 128, 0.4);
+      background: var(--text-primary);
+      border-color: var(--text-primary);
+    }
+
+    .pay-fab:hover span {
+      color: #FFFFFF;
+    }
+
+    .pay-fab:hover svg {
+      color: var(--accent-gold);
     }
 
     .pay-fab:active {
@@ -413,11 +525,19 @@
 
     .pay-fab span {
       font-family: var(--font-sans);
-      color: #111111;
+      color: var(--text-primary);
       font-size: 13px;
       font-weight: 700;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
+      transition: color 0.3s ease;
+    }
+
+    .pay-fab-icon {
+      width: 16px;
+      height: 16px;
+      color: var(--accent-gold-dark);
+      transition: color 0.3s ease;
     }
 
     /* MODAL POPUP ARCHITECTURE */
@@ -427,7 +547,7 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: var(--bg);
+      background: var(--bg-primary);
       z-index: 10000;
       display: flex;
       flex-direction: column;
@@ -445,41 +565,42 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 16px 20px;
-      border-bottom: 1px solid var(--border);
-      background: var(--bg);
-      /* Account for top safe areas (notches) on newer phones */
-      padding-top: calc(16px + env(safe-area-inset-top, 0px));
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--border-light);
+      background: var(--bg-primary);
+      padding-top: calc(18px + env(safe-area-inset-top, 0px));
     }
 
     .modal-title {
       font-family: var(--font-serif);
-      font-size: 16px;
-      font-weight: 500;
-      letter-spacing: 0.05em;
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
       color: var(--text-primary);
       text-transform: uppercase;
     }
 
     .close-btn {
-      background: var(--surface);
-      border: 1px solid var(--border);
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-light);
       font-family: var(--font-sans);
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 600;
       color: var(--text-primary);
       cursor: pointer;
-      padding: 8px 16px;
-      border-radius: 20px;
-      transition: all 0.2s ease;
+      padding: 10px 20px;
+      border-radius: 25px;
+      transition: all 0.3s ease;
       display: flex;
       align-items: center;
       justify-content: center;
+      letter-spacing: 0.05em;
     }
 
     .close-btn:hover {
-      background: #f0f0f0;
-      border-color: #d1d1d1;
+      background: var(--text-primary);
+      color: #FFFFFF;
+      border-color: var(--text-primary);
     }
 
     .modal-body {
@@ -487,7 +608,7 @@
       width: 100%;
       overflow: hidden;
       position: relative;
-      background: #FFF;
+      background: #FFFFFF;
       -webkit-overflow-scrolling: touch;
     }
 
@@ -502,9 +623,13 @@
     .empty-search-state {
       display: none;
       text-align: center;
-      padding: 48px 16px;
+      padding: 64px 24px;
       color: var(--text-muted);
       font-size: 14px;
+      font-weight: 400;
+      border: 1px dashed var(--accent-gold);
+      border-radius: 12px;
+      background: var(--surface-glass);
     }
 
     .empty-search-state.visible {
@@ -514,8 +639,12 @@
 </head>
 <body>
 
-  <!-- HEADER BLOCK -->
-  <header class="header" id="menuHeader">
+  <!-- AMBIENT GLOWS -->
+  <div class="ambient-glow-1"></div>
+  <div class="ambient-glow-2"></div>
+
+  <!-- HERO BANNER -->
+  <header class="hero-banner" id="menuHeader">
     <div class="header-logo-container">
       <img src="./images-removebg-preview.png" alt="Cape Leisure Club Logo" class="header-logo" id="headerLogo">
     </div>
@@ -535,15 +664,15 @@
   <!-- SEARCH BAR -->
   <div class="search-container">
     <div class="search-wrapper">
-      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="11" cy="11" r="8"></circle>
         <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
       </svg>
-      <input type="text" class="search-input" id="searchInput" placeholder="Search our menu..." aria-label="Search menu items">
+      <input type="text" class="search-input" id="searchInput" placeholder="Search the menu..." aria-label="Search menu items">
     </div>
   </div>
 
-  <!-- CATEGORY NAVIGATION -->
+  <!-- CATEGORY STICKY NAVIGATION -->
   <nav class="category-nav" id="categoryNav">
     <div class="category-nav-scroll" id="categoryNavScroll">
       <a href="#starters" class="nav-tab active" id="tab-starters">Starters</a>
@@ -561,7 +690,7 @@
     </div>
   </nav>
 
-  <!-- MENU GRID / LIST -->
+  <!-- MENU LIST MATRIX -->
   <main class="menu-container" id="menuContainer">
     
     <!-- STARTERS -->
@@ -571,40 +700,214 @@
         <div class="section-line"></div>
       </div>
       <div class="menu-list">
+        
         <div class="menu-item">
           <div class="menu-item-header">
-            <h3 class="menu-item-title">Truffle Fries</h3>
-            <span class="menu-item-price">Le 140</span>
-          </div>
-          <p class="menu-item-desc">Golden crispy hand-cut potatoes tossed in white truffle oil, grated Parmigiano-Reggiano, and fresh parsley.</p>
-          <div class="menu-item-footer">
-            <div class="menu-item-tags">
-              <span class="tag tag-v">V</span>
-              <span class="tag tag-gf">GF</span>
+            <div class="menu-item-title-block">
+              <span class="item-number">217</span>
+              <h3 class="menu-item-title">Lagoonda Combo</h3>
             </div>
+            <span class="menu-item-price">425 LE</span>
           </div>
+          <p class="menu-item-desc">2 spring rolls, 2 breaded calamari, 2 breaded shrimps, 2 chicken tenders and homemade potato wedges.</p>
         </div>
+
         <div class="menu-item">
           <div class="menu-item-header">
-            <h3 class="menu-item-title">Crispy Calamari</h3>
-            <span class="menu-item-price">Le 210</span>
+            <div class="menu-item-title-block">
+              <span class="item-number">218</span>
+              <h3 class="menu-item-title">Vegetable Spring Rolls (5 Pieces)</h3>
+            </div>
+            <span class="menu-item-price">230 LE</span>
           </div>
-          <p class="menu-item-desc">Lightly dusted and golden fried calamari rings served with house-made citrus herb aioli and charred lemon wedges.</p>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item-header">
-            <h3 class="menu-item-title">Edamame</h3>
-            <span class="menu-item-price">Le 95</span>
-          </div>
-          <p class="menu-item-desc">Steamed fresh soybean pods sprinkled with flaky Maldon sea salt.</p>
+          <p class="menu-item-desc">Pastry stuffed with fresh garden vegetables served with a sweet and sour dipping sauce.</p>
           <div class="menu-item-footer">
             <div class="menu-item-tags">
               <span class="tag tag-v">V</span>
-              <span class="tag tag-gf">GF</span>
               <span class="tag tag-vg">VG</span>
             </div>
           </div>
         </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">219</span>
+              <h3 class="menu-item-title">Fish Carpacio</h3>
+            </div>
+            <span class="menu-item-price">350 LE</span>
+          </div>
+          <p class="menu-item-desc">Delicately sliced fresh fish marinated with lemon juice, virgin olive oil, capers, and onion, served with hot artisan bread.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-gf">GF</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">220</span>
+              <h3 class="menu-item-title">French Fries (Chips)</h3>
+            </div>
+            <span class="menu-item-price">145 LE</span>
+          </div>
+          <p class="menu-item-desc">Golden crispy hand-cut potato chips cooked to a perfect crunch.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-v">V</span>
+              <span class="tag tag-vg">VG</span>
+              <span class="tag tag-gf">GF</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">221</span>
+              <h3 class="menu-item-title">Sweet Potato Wedges</h3>
+            </div>
+            <span class="menu-item-price">145 LE</span>
+          </div>
+          <p class="menu-item-desc">Sweet potato wedges roasted with herbs, crispy outside and tender inside.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-v">V</span>
+              <span class="tag tag-vg">VG</span>
+              <span class="tag tag-gf">GF</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">222</span>
+              <h3 class="menu-item-title">Chicken Tender (5 Pieces)</h3>
+            </div>
+            <span class="menu-item-price">250 LE</span>
+          </div>
+          <p class="menu-item-desc">Tender, golden breaded chicken tenders served with a classic cocktail dipping sauce.</p>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">223</span>
+              <h3 class="menu-item-title">Breaded Calamari (5 Pieces)</h3>
+            </div>
+            <span class="menu-item-price">250 LE</span>
+          </div>
+          <p class="menu-item-desc">Crispy breaded calamari rings served with house cocktail sauce.</p>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">224</span>
+              <h3 class="menu-item-title">Breaded Shrimp (6 Pieces)</h3>
+            </div>
+            <span class="menu-item-price">260 LE</span>
+          </div>
+          <p class="menu-item-desc">Plump breaded shrimps served crispy with a tangy tartar dipping sauce.</p>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">225</span>
+              <h3 class="menu-item-title">Nachos Chips (6 Pieces)</h3>
+            </div>
+            <span class="menu-item-price">325 LE</span>
+          </div>
+          <p class="menu-item-desc">Crunchy tortilla chips loaded with melted cheddar cheese, sweet pepper, and black olives on top.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-v">V</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <h3 class="menu-item-title">Garlic Cheese Bread</h3>
+            </div>
+            <span class="menu-item-price">85 LE</span>
+          </div>
+          <p class="menu-item-desc">Warm artisan bread toasted with garlic butter and topped with a rich layer of melted cheese.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-v">V</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <h3 class="menu-item-title">Garlic Bread</h3>
+            </div>
+            <span class="menu-item-price">70 LE</span>
+          </div>
+          <p class="menu-item-desc">Toasted bread slices infused with garlic butter and fresh herbs.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-v">V</span>
+              <span class="tag tag-vg">VG</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <h3 class="menu-item-title">Grilled Potato Plate</h3>
+            </div>
+            <span class="menu-item-price">75 LE</span>
+          </div>
+          <p class="menu-item-desc">Savory grilled potato slices lightly seasoned with herbs and olive oil.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-v">V</span>
+              <span class="tag tag-vg">VG</span>
+              <span class="tag tag-gf">GF</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <h3 class="menu-item-title">Bread & Butter</h3>
+            </div>
+            <span class="menu-item-price">60 LE</span>
+          </div>
+          <p class="menu-item-desc">A basket of freshly baked warm bread rolls served with premium French butter.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-v">V</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <h3 class="menu-item-title">Salmon Snapper Carpaccio</h3>
+            </div>
+            <span class="menu-item-price">815 LE</span>
+          </div>
+          <p class="menu-item-desc">Ultra-thin raw slices of salmon and snapper drizzled with extra virgin olive oil, fresh lemon juice, capers, and dill.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-gf">GF</span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -615,33 +918,16 @@
         <div class="section-line"></div>
       </div>
       <div class="menu-list">
+
         <div class="menu-item">
           <div class="menu-item-header">
-            <h3 class="menu-item-title">Classic Caesar Salad</h3>
-            <span class="menu-item-price">Le 180</span>
-          </div>
-          <p class="menu-item-desc">Crisp romaine hearts, shaved parmigiano, oven-roasted garlic croutons, tossed in our rich house creamy Caesar dressing.</p>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item-header">
-            <h3 class="menu-item-title">Quinoa & Avocado Bowl</h3>
-            <span class="menu-item-price">Le 220</span>
-          </div>
-          <p class="menu-item-desc">Organic white and red quinoa, ripe avocado, cherry tomatoes, English cucumbers, and fresh herbs with a lemon-herb dressing.</p>
-          <div class="menu-item-footer">
-            <div class="menu-item-tags">
-              <span class="tag tag-v">V</span>
-              <span class="tag tag-gf">GF</span>
-              <span class="tag tag-vg">VG</span>
+            <div class="menu-item-title-block">
+              <span class="item-number">211</span>
+              <h3 class="menu-item-title">Greek Salad</h3>
             </div>
+            <span class="menu-item-price">445 LE</span>
           </div>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item-header">
-            <h3 class="menu-item-title">Burrata & Heirloom Tomato</h3>
-            <span class="menu-item-price">Le 240</span>
-          </div>
-          <p class="menu-item-desc">Creamy Italian burrata cheese, vibrant heirloom tomatoes, house-made basil pesto, and aged balsamic reduction.</p>
+          <p class="menu-item-desc">Lettuce, tomato, cucumber, onion, sweet pepper, black olives, and feta cheese, served with a zesty lemon mustard dressing.</p>
           <div class="menu-item-footer">
             <div class="menu-item-tags">
               <span class="tag tag-v">V</span>
@@ -649,6 +935,104 @@
             </div>
           </div>
         </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">212</span>
+              <h3 class="menu-item-title">Chicken Caesar</h3>
+            </div>
+            <span class="menu-item-price">445 LE</span>
+          </div>
+          <p class="menu-item-desc">Romaine lettuce, tender grilled chicken, croutons, and premium parmesan cheese topping, garnished with pine seeds and rich dressing.</p>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">213</span>
+              <h3 class="menu-item-title">Lagoonda Chicken Salad</h3>
+            </div>
+            <span class="menu-item-price">430 LE</span>
+          </div>
+          <p class="menu-item-desc">Roasted chicken, sweet fresh pineapple, spring onions, and sweet peppers tossed in a signature mayo-mustard sauce.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-gf">GF</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">214</span>
+              <h3 class="menu-item-title">Shrimp Avocado Salad</h3>
+            </div>
+            <span class="menu-item-price">465 LE</span>
+          </div>
+          <p class="menu-item-desc">Boiled local shrimp, rich guacamole, and crisp lettuce served with a light lemon-oil dressing.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-gf">GF</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">215</span>
+              <h3 class="menu-item-title">Potato Salad</h3>
+            </div>
+            <span class="menu-item-price">350 LE</span>
+          </div>
+          <p class="menu-item-desc">Boiled potato, onion, fresh tomato, green peas, and hard-boiled eggs tossed in a creamy meyo-mustard dressing.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-v">V</span>
+              <span class="tag tag-gf">GF</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">216</span>
+              <h3 class="menu-item-title">Halloumi Salad</h3>
+            </div>
+            <span class="menu-item-price">460 LE</span>
+          </div>
+          <p class="menu-item-desc">Pan-seared halloumi cheese served over a bed of mixed greens, cucumber, and cherry tomatoes, drizzled with olive oil.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-v">V</span>
+              <span class="tag tag-gf">GF</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <h3 class="menu-item-title">Tuna Pasta Salad</h3>
+            </div>
+            <span class="menu-item-price">420 LE</span>
+          </div>
+          <p class="menu-item-desc">Flaked white tuna, penne pasta, crisp lettuce, black olives, cucumber, and sweet corn with a rich meyo-mustard dressing.</p>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <h3 class="menu-item-title">Crab Salad</h3>
+            </div>
+            <span class="menu-item-price">420 LE</span>
+          </div>
+          <p class="menu-item-desc">Shredded crab sticks, crisp lettuce, cucumber, and fresh tomatoes, served with a light meyo-mustard sauce.</p>
+        </div>
+
       </div>
     </section>
 
@@ -659,42 +1043,232 @@
         <div class="section-line"></div>
       </div>
       <div class="menu-list">
+
         <div class="menu-item">
           <div class="menu-item-header">
-            <h3 class="menu-item-title">Grilled Atlantic Salmon</h3>
-            <span class="menu-item-price">Le 420</span>
+            <div class="menu-item-title-block">
+              <span class="item-number">233</span>
+              <h3 class="menu-item-title">Mushroom Local Steak</h3>
+            </div>
+            <span class="menu-item-price">810 LE</span>
           </div>
-          <p class="menu-item-desc">Crisp pan-seared salmon fillet over butter-wilted spinach, creamy saffron risotto, and a delicate citrus-dill reduction.</p>
+          <p class="menu-item-desc">Flame-grilled tender local steak served with a rich, savory wild mushroom cream sauce and your choice of side.</p>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">234</span>
+              <h3 class="menu-item-title">Pepper Local Steak</h3>
+            </div>
+            <span class="menu-item-price">810 LE</span>
+          </div>
+          <p class="menu-item-desc">Flame-grilled local beef steak covered in a rich green pepper corn reduction sauce.</p>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">235</span>
+              <h3 class="menu-item-title">Blue Cheese Local Steak</h3>
+            </div>
+            <span class="menu-item-price">920 LE</span>
+          </div>
+          <p class="menu-item-desc">Grilled local steak topped with a decadent, creamy French blue cheese reduction.</p>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">236</span>
+              <h3 class="menu-item-title">Imported Mushroom Steak</h3>
+            </div>
+            <span class="menu-item-price">1,250 LE</span>
+          </div>
+          <p class="menu-item-desc">Premium imported beef cut, grilled to your preference, served with a luxurious wild mushroom cream sauce and steamed vegetables.</p>
           <div class="menu-item-footer">
             <div class="menu-item-tags">
               <span class="tag tag-gf">GF</span>
             </div>
           </div>
         </div>
+
         <div class="menu-item">
           <div class="menu-item-header">
-            <h3 class="menu-item-title">Pan-Seared Prime Ribeye</h3>
-            <span class="menu-item-price">Le 580</span>
+            <div class="menu-item-title-block">
+              <span class="item-number">237</span>
+              <h3 class="menu-item-title">Imported Pepper Steak</h3>
+            </div>
+            <span class="menu-item-price">1,250 LE</span>
           </div>
-          <p class="menu-item-desc">12oz prime beef ribeye grilled to order, served with truffle butter, roasted garlic mashed potatoes, and grilled asparagus.</p>
+          <p class="menu-item-desc">Premium imported beef cut topped with a robust peppercorn sauce, served with roasted potatoes.</p>
           <div class="menu-item-footer">
             <div class="menu-item-tags">
               <span class="tag tag-gf">GF</span>
             </div>
           </div>
         </div>
+
         <div class="menu-item">
           <div class="menu-item-header">
-            <h3 class="menu-item-title">Truffle Wild Mushroom Pasta</h3>
-            <span class="menu-item-price">Le 360</span>
+            <div class="menu-item-title-block">
+              <span class="item-number">238</span>
+              <h3 class="menu-item-title">Imported Blue Cheese Steak</h3>
+            </div>
+            <span class="menu-item-price">1,320 LE</span>
           </div>
-          <p class="menu-item-desc">Fettuccine tossed in a rich, velvety truffle cream sauce with sautéed wild forest mushrooms and fresh chives.</p>
+          <p class="menu-item-desc">Premium imported cut of beef with a rich, melted blue cheese sauce and seasonal roasted vegetables.</p>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">239</span>
+              <h3 class="menu-item-title">Freetown Chicken</h3>
+            </div>
+            <span class="menu-item-price">600 LE</span>
+          </div>
+          <p class="menu-item-desc">Tender baked chicken breast served with a delicious secret house sauce and steamed garden vegetables.</p>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">240</span>
+              <h3 class="menu-item-title">Grilled Barracuda Fish</h3>
+            </div>
+            <span class="menu-item-price">570 LE</span>
+          </div>
+          <p class="menu-item-desc">Freshly caught local barracuda fillet grilled over coals, served with a creamy lemon sauce and steamed vegetables.</p>
           <div class="menu-item-footer">
             <div class="menu-item-tags">
-              <span class="tag tag-v">V</span>
+              <span class="tag tag-gf">GF</span>
             </div>
           </div>
         </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">241</span>
+              <h3 class="menu-item-title">Fish And Chips</h3>
+            </div>
+            <span class="menu-item-price">575 LE</span>
+          </div>
+          <p class="menu-item-desc">Battered crisp local fish fillet served with fresh tartar sauce, french fries, and steamed vegetables.</p>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">243</span>
+              <h3 class="menu-item-title">Golden Fried Shrimps</h3>
+            </div>
+            <span class="menu-item-price">600 LE</span>
+          </div>
+          <p class="menu-item-desc">Crispy golden battered fried shrimps served with tartar sauce and fresh steamed vegetables.</p>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">244</span>
+              <h3 class="menu-item-title">Shrimps Hot Sauce</h3>
+            </div>
+            <span class="menu-item-price">600 LE</span>
+          </div>
+          <p class="menu-item-desc">Plump shrimps simmered in a spicy house tomato sauce, served with steamed garden vegetables.</p>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">245</span>
+              <h3 class="menu-item-title">Grilled Shrimps</h3>
+            </div>
+            <span class="menu-item-price">650 LE</span>
+          </div>
+          <p class="menu-item-desc">2 skewers of plump shrimps grilled over natural coals, served with tartar sauce and steamed vegetables.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-gf">GF</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">246</span>
+              <h3 class="menu-item-title">Grilled Lobster</h3>
+            </div>
+            <span class="menu-item-price">995 LE</span>
+          </div>
+          <p class="menu-item-desc">Freshly caught local lobster grilled over coals, served with garlic herb butter.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-gf">GF</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">247</span>
+              <h3 class="menu-item-title">Lobster Thermidor</h3>
+            </div>
+            <span class="menu-item-price">995 LE</span>
+          </div>
+          <p class="menu-item-desc">Rich lobster meat cooked in a creamy mustard and brandy sauce, stuffed back into the shell, and browned with cheese.</p>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">248</span>
+              <h3 class="menu-item-title">Grilled Chicken Breast</h3>
+            </div>
+            <span class="menu-item-price">600 LE</span>
+          </div>
+          <p class="menu-item-desc">Tender double chicken breast grilled over charcoal, served with herb sauce and steamed vegetables.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-gf">GF</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <h3 class="menu-item-title">Shrimp Thermidor</h3>
+            </div>
+            <span class="menu-item-price">900 LE</span>
+          </div>
+          <p class="menu-item-desc">Sautéed shrimps cooked in a velvety cream sauce with cheese and mustard, baked to a golden crust.</p>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <h3 class="menu-item-title">Seafood Platter</h3>
+            </div>
+            <span class="menu-item-price">1,650 LE</span>
+          </div>
+          <p class="menu-item-desc">A grand selection of calamari, barracuda fillet, shrimps, and octopus, served with fried rice and steamed vegetables.</p>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <h3 class="menu-item-title">Cordon Bleu (Turkey)</h3>
+            </div>
+            <span class="menu-item-price">495 LE</span>
+          </div>
+          <p class="menu-item-desc">Chicken breast rolled around cheese and turkey, breaded and fried golden, served with chips and coleslaw.</p>
+        </div>
+
       </div>
     </section>
 
@@ -705,53 +1279,16 @@
         <div class="section-line"></div>
       </div>
       <div class="menu-list">
+
         <div class="menu-item">
           <div class="menu-item-header">
-            <h3 class="menu-item-title">Traditional Hummus</h3>
-            <span class="menu-item-price">Le 130</span>
-          </div>
-          <p class="menu-item-desc">Smooth chickpea purée blended with premium tahini, garlic, and fresh lemon juice, finished with extra virgin olive oil and sumac.</p>
-          <div class="menu-item-footer">
-            <div class="menu-item-tags">
-              <span class="tag tag-v">V</span>
-              <span class="tag tag-gf">GF</span>
-              <span class="tag tag-vg">VG</span>
+            <div class="menu-item-title-block">
+              <span class="item-number">161</span>
+              <h3 class="menu-item-title">Tabbouleh</h3>
             </div>
+            <span class="menu-item-price">400 LE</span>
           </div>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item-header">
-            <h3 class="menu-item-title">Moutabbal (Baba Ghanoush)</h3>
-            <span class="menu-item-price">Le 140</span>
-          </div>
-          <p class="menu-item-desc">Smoky flame-grilled eggplant mashed with tahini, garlic, fresh lemon, drizzled with olive oil and pomegranate seeds.</p>
-          <div class="menu-item-footer">
-            <div class="menu-item-tags">
-              <span class="tag tag-v">V</span>
-              <span class="tag tag-gf">GF</span>
-              <span class="tag tag-vg">VG</span>
-            </div>
-          </div>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item-header">
-            <h3 class="menu-item-title">Labneh with Garlic</h3>
-            <span class="menu-item-price">Le 120</span>
-          </div>
-          <p class="menu-item-desc">Thick, creamy strained Lebanese yogurt infused with garlic, dried mint, and extra virgin olive oil.</p>
-          <div class="menu-item-footer">
-            <div class="menu-item-tags">
-              <span class="tag tag-v">V</span>
-              <span class="tag tag-gf">GF</span>
-            </div>
-          </div>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item-header">
-            <h3 class="menu-item-title">Tabbouleh</h3>
-            <span class="menu-item-price">Le 130</span>
-          </div>
-          <p class="menu-item-desc">Finely chopped Italian parsley, mint leaves, tomatoes, and red onions with cracked bulgur, dressed with lemon oil.</p>
+          <p class="menu-item-desc">Finely chopped parsley, tomato, onion, and mint salad mixed with cracked bulgur wheat, fresh lemon, and virgin olive oil dressing.</p>
           <div class="menu-item-footer">
             <div class="menu-item-tags">
               <span class="tag tag-v">V</span>
@@ -759,6 +1296,161 @@
             </div>
           </div>
         </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">162</span>
+              <h3 class="menu-item-title">Feta Salad</h3>
+            </div>
+            <span class="menu-item-price">375 LE</span>
+          </div>
+          <p class="menu-item-desc">Creamy feta cheese cubed and tossed with tomatoes, cucumbers, olives, wild oregano, and olive oil.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-v">V</span>
+              <span class="tag tag-gf">GF</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">163</span>
+              <h3 class="menu-item-title">Fattouch</h3>
+            </div>
+            <span class="menu-item-price">400 LE</span>
+          </div>
+          <p class="menu-item-desc">Crisp garden greens, cucumbers, tomatoes, radishes, and sumac, topped with crispy fried pita croutons and pomegranate molasses dressing.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-v">V</span>
+              <span class="tag tag-vg">VG</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">164</span>
+              <h3 class="menu-item-title">Hummus</h3>
+            </div>
+            <span class="menu-item-price">350 LE</span>
+          </div>
+          <p class="menu-item-desc">Mashed chickpeas blended with premium sesame tahini, fresh garlic, and lemon juice.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-v">V</span>
+              <span class="tag tag-vg">VG</span>
+              <span class="tag tag-gf">GF</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">165</span>
+              <h3 class="menu-item-title">Hummus Beyrouti</h3>
+            </div>
+            <span class="menu-item-price">390 LE</span>
+          </div>
+          <p class="menu-item-desc">Our traditional hummus mixed with chopped parsley, garlic, and hot green peppers, topped with olive oil.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-v">V</span>
+              <span class="tag tag-vg">VG</span>
+              <span class="tag tag-gf">GF</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">166</span>
+              <h3 class="menu-item-title">Hummus With Shrimps</h3>
+            </div>
+            <span class="menu-item-price">485 LE</span>
+          </div>
+          <p class="menu-item-desc">Creamy hummus topped with sautéed shrimps and our special seasoned herb sauce.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-gf">GF</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">167</span>
+              <h3 class="menu-item-title">Hummus With Meat</h3>
+            </div>
+            <span class="menu-item-price">485 LE</span>
+          </div>
+          <p class="menu-item-desc">Traditional smooth hummus topped with warm pan-seared diced beef and pine nuts.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-gf">GF</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">170</span>
+              <h3 class="menu-item-title">Stuffed Grape Leaves</h3>
+            </div>
+            <span class="menu-item-price">350 LE</span>
+          </div>
+          <p class="menu-item-desc">Lebanese grape leaves stuffed with a seasoned mix of rice, onion, parsley, tomato, lemon, and a touch of pomegranate molasses.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-v">V</span>
+              <span class="tag tag-vg">VG</span>
+              <span class="tag tag-gf">GF</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">172</span>
+              <h3 class="menu-item-title">Labneh</h3>
+            </div>
+            <span class="menu-item-price">345 LE</span>
+          </div>
+          <p class="menu-item-desc">Homemade creamy strained yogurt drizzled with premium extra virgin olive oil.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-v">V</span>
+              <span class="tag tag-gf">GF</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">173</span>
+              <h3 class="menu-item-title">Labneh With Garlic</h3>
+            </div>
+            <span class="menu-item-price">350 LE</span>
+          </div>
+          <p class="menu-item-desc">Strained homemade yogurt blended with fresh garlic paste, dried mint, and olive oil.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-v">V</span>
+              <span class="tag tag-gf">GF</span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -769,53 +1461,246 @@
         <div class="section-line"></div>
       </div>
       <div class="menu-list">
+
         <div class="menu-item">
           <div class="menu-item-header">
-            <h3 class="menu-item-title">Kibbeh Croquettes</h3>
-            <span class="menu-item-price">Le 160</span>
+            <div class="menu-item-title-block">
+              <span class="item-number">176</span>
+              <h3 class="menu-item-title">Spicy Potato</h3>
+            </div>
+            <span class="menu-item-price">355 LE</span>
           </div>
-          <p class="menu-item-desc">Crispy bulgur wheat shells filled with seasoned minced beef, pine nuts, and traditional spices, served with yogurt dip.</p>
+          <p class="menu-item-desc">Crispy fried cubes of potato tossed with garlic, fresh coriander, chili flakes, and lemon juice.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-v">V</span>
+              <span class="tag tag-vg">VG</span>
+              <span class="tag tag-gf">GF</span>
+            </div>
+          </div>
         </div>
+
         <div class="menu-item">
           <div class="menu-item-header">
-            <h3 class="menu-item-title">Falafel</h3>
-            <span class="menu-item-price">Le 130</span>
+            <div class="menu-item-title-block">
+              <span class="item-number">178</span>
+              <h3 class="menu-item-title">Cheese & Meat Roll (5 Pieces)</h3>
+            </div>
+            <span class="menu-item-price">355 LE</span>
           </div>
-          <p class="menu-item-desc">Golden-fried spiced chickpea and fava bean patties served with pickles, tomatoes, and home-made tahini dressing.</p>
+          <p class="menu-item-desc">Crispy rolls stuffed with a seasoned combination of mixed cheese and minced beef.</p>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">179</span>
+              <h3 class="menu-item-title">Rekakat Cheese (5 Pieces)</h3>
+            </div>
+            <span class="menu-item-price">340 LE</span>
+          </div>
+          <p class="menu-item-desc">Thin, crispy phyllo pastry rolls stuffed with a blend of warm, melted white cheeses.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-v">V</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">180</span>
+              <h3 class="menu-item-title">Meat Kebbe (4 Pieces)</h3>
+            </div>
+            <span class="menu-item-price">350 LE</span>
+          </div>
+          <p class="menu-item-desc">Fried bulgur and minced beef shells stuffed with seasoned beef, onions, and pine nuts.</p>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">181</span>
+              <h3 class="menu-item-title">Fish Kebbe (4 Pieces)</h3>
+            </div>
+            <span class="menu-item-price">350 LE</span>
+          </div>
+          <p class="menu-item-desc">Fried bulgur wheat croquettes stuffed with seasoned fish, onions, and herbs.</p>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">182</span>
+              <h3 class="menu-item-title">Soujouk</h3>
+            </div>
+            <span class="menu-item-price">405 LE</span>
+          </div>
+          <p class="menu-item-desc">Traditional spicy Lebanese lamb sausages sautéed with fresh tomatoes, garlic, and pomegranate molasses.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-gf">GF</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">183</span>
+              <h3 class="menu-item-title">Makanek</h3>
+            </div>
+            <span class="menu-item-price">375 LE</span>
+          </div>
+          <p class="menu-item-desc">Small, spiced beef sausages sautéed with lemon juice and pine nuts.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-gf">GF</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">184</span>
+              <h3 class="menu-item-title">Oriental Spicy Shrimp</h3>
+            </div>
+            <span class="menu-item-price">385 LE</span>
+          </div>
+          <p class="menu-item-desc">Sautéed shrimps cooked in a spicy Oriental herb-garlic butter sauce.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-gf">GF</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">185</span>
+              <h3 class="menu-item-title">Grilled Halloumi</h3>
+            </div>
+            <span class="menu-item-price">350 LE</span>
+          </div>
+          <p class="menu-item-desc">Slices of halloumi cheese grilled over coals, served warm with mint leaves.</p>
           <div class="menu-item-footer">
             <div class="menu-item-tags">
               <span class="tag tag-v">V</span>
               <span class="tag tag-gf">GF</span>
-              <span class="tag tag-vg">VG</span>
             </div>
           </div>
         </div>
+
         <div class="menu-item">
           <div class="menu-item-header">
-            <h3 class="menu-item-title">Sambousek Cheese</h3>
-            <span class="menu-item-price">Le 140</span>
-          </div>
-          <p class="menu-item-desc">Crispy golden pastry pockets filled with a warm, melted blend of Lebanese white cheeses and parsley.</p>
-          <div class="menu-item-footer">
-            <div class="menu-item-tags">
-              <span class="tag tag-v">V</span>
+            <div class="menu-item-title-block">
+              <span class="item-number">188</span>
+              <h3 class="menu-item-title">Shrimp Fatteh</h3>
             </div>
+            <span class="menu-item-price">390 LE</span>
           </div>
+          <p class="menu-item-desc">Warm layers of toasted pita, seasoned chickpeas, and grilled shrimps, topped with hot garlic yogurt and toasted pine nuts.</p>
         </div>
+
         <div class="menu-item">
           <div class="menu-item-header">
-            <h3 class="menu-item-title">Batata Harra</h3>
-            <span class="menu-item-price">Le 120</span>
+            <div class="menu-item-title-block">
+              <span class="item-number">189</span>
+              <h3 class="menu-item-title">Shrimp Peri-Peri</h3>
+            </div>
+            <span class="menu-item-price">425 LE</span>
           </div>
-          <p class="menu-item-desc">Spicy cubes of crispy fried potato tossed in coriander, garlic, chili paste, and fresh lemon juice.</p>
+          <p class="menu-item-desc">Plump shrimps pan-seared in our spicy, tangy Peri-Peri chili sauce.</p>
           <div class="menu-item-footer">
             <div class="menu-item-tags">
-              <span class="tag tag-v">V</span>
               <span class="tag tag-gf">GF</span>
-              <span class="tag tag-vg">VG</span>
             </div>
           </div>
         </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">190</span>
+              <h3 class="menu-item-title">Beef Cubes</h3>
+            </div>
+            <span class="menu-item-price">390 LE</span>
+          </div>
+          <p class="menu-item-desc">Tender cubes of beef tenderloin pan-seared with butter, garlic, and wild spices.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-gf">GF</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">191</span>
+              <h3 class="menu-item-title">Chicken Wings Provencal</h3>
+            </div>
+            <span class="menu-item-price">370 LE</span>
+          </div>
+          <p class="menu-item-desc">Fried chicken wings tossed in garlic, fresh coriander, and lemon juice.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-gf">GF</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">192</span>
+              <h3 class="menu-item-title">Chicken Wings In Peanut Sauce</h3>
+            </div>
+            <span class="menu-item-price">370 LE</span>
+          </div>
+          <p class="menu-item-desc">Fried chicken wings smothered in a rich, velvety West African groundnut peanut sauce.</p>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">193</span>
+              <h3 class="menu-item-title">Fried Chicken Wings</h3>
+            </div>
+            <span class="menu-item-price">370 LE</span>
+          </div>
+          <p class="menu-item-desc">Crispy fried chicken wings served with your choice of dipping sauce.</p>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <span class="item-number">195</span>
+              <h3 class="menu-item-title">Arayes A La Mamba</h3>
+            </div>
+            <span class="menu-item-price">450 LE</span>
+          </div>
+          <p class="menu-item-desc">Toasted pita bread stuffed with seasoned beef kafta, grilled crispy over charcoal.</p>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <div class="menu-item-title-block">
+              <h3 class="menu-item-title">Seafood Provncal</h3>
+            </div>
+            <span class="menu-item-price">450 LE</span>
+          </div>
+          <p class="menu-item-desc">Sautéed mixed seafood tossed with fresh garlic, fresh coriander, olive oil, and a splash of lemon juice.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-gf">GF</span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -828,15 +1713,19 @@
       <div class="menu-list">
         <div class="menu-item">
           <div class="menu-item-header">
-            <h3 class="menu-item-title">Mixed Grill Platter</h3>
-            <span class="menu-item-price">Le 520</span>
+            <div class="menu-item-title-block">
+              <h3 class="menu-item-title">Mixed Grill Platter</h3>
+            </div>
+            <span class="menu-item-price">520 LE</span>
           </div>
           <p class="menu-item-desc">An assortment of Shish Taouk, Beef Kabab, and Kafta skewers grilled over natural wood coals. Served with garlic paste and grilled vegetables.</p>
         </div>
         <div class="menu-item">
           <div class="menu-item-header">
-            <h3 class="menu-item-title">Shish Taouk Skewers</h3>
-            <span class="menu-item-price">Le 340</span>
+            <div class="menu-item-title-block">
+              <h3 class="menu-item-title">Shish Taouk Skewers</h3>
+            </div>
+            <span class="menu-item-price">340 LE</span>
           </div>
           <p class="menu-item-desc">Skewers of tender, yogurt-and-lemon marinated chicken breast grilled over charcoal, served with our signature garlic whip.</p>
           <div class="menu-item-footer">
@@ -847,15 +1736,19 @@
         </div>
         <div class="menu-item">
           <div class="menu-item-header">
-            <h3 class="menu-item-title">Beef Kafta Skewers</h3>
-            <span class="menu-item-price">Le 360</span>
+            <div class="menu-item-title-block">
+              <h3 class="menu-item-title">Beef Kafta Skewers</h3>
+            </div>
+            <span class="menu-item-price">360 LE</span>
           </div>
           <p class="menu-item-desc">Charcoal-grilled skewers of seasoned premium ground beef blended with onions, fresh parsley, and Arabic spices.</p>
         </div>
         <div class="menu-item">
           <div class="menu-item-header">
-            <h3 class="menu-item-title">Grilled Lamb Chops</h3>
-            <span class="menu-item-price">Le 480</span>
+            <div class="menu-item-title-block">
+              <h3 class="menu-item-title">Grilled Lamb Chops</h3>
+            </div>
+            <span class="menu-item-price">480 LE</span>
           </div>
           <p class="menu-item-desc">Prime tender lamb chops marinated in garlic and wild rosemary, flame-grilled and served with roasted baby potatoes.</p>
           <div class="menu-item-footer">
@@ -876,22 +1769,28 @@
       <div class="menu-list">
         <div class="menu-item">
           <div class="menu-item-header">
-            <h3 class="menu-item-title">Cape Club Sandwich</h3>
-            <span class="menu-item-price">Le 220</span>
+            <div class="menu-item-title-block">
+              <h3 class="menu-item-title">Cape Club Sandwich</h3>
+            </div>
+            <span class="menu-item-price">220 LE</span>
           </div>
           <p class="menu-item-desc">Triple-decker toasted bread with flame-grilled chicken, crispy beef bacon, fried egg, lettuce, ripe tomato, and garlic mayonnaise.</p>
         </div>
         <div class="menu-item">
           <div class="menu-item-header">
-            <h3 class="menu-item-title">Chicken Shawarma Wrap</h3>
-            <span class="menu-item-price">Le 190</span>
+            <div class="menu-item-title-block">
+              <h3 class="menu-item-title">Chicken Shawarma Wrap</h3>
+            </div>
+            <span class="menu-item-price">190 LE</span>
           </div>
           <p class="menu-item-desc">Thinly sliced marinated chicken shawarma, garlic paste, and wild cucumber pickles wrapped in fresh thin flatbread.</p>
         </div>
         <div class="menu-item">
           <div class="menu-item-header">
-            <h3 class="menu-item-title">Tenderloin Steak Sandwich</h3>
-            <span class="menu-item-price">Le 280</span>
+            <div class="menu-item-title-block">
+              <h3 class="menu-item-title">Tenderloin Steak Sandwich</h3>
+            </div>
+            <span class="menu-item-price">280 LE</span>
           </div>
           <p class="menu-item-desc">Grilled beef tenderloin strips, caramelized onions, sautéed mushrooms, provolone cheese, and dijonnaise on a warm baguette.</p>
         </div>
@@ -907,8 +1806,10 @@
       <div class="menu-list">
         <div class="menu-item">
           <div class="menu-item-header">
-            <h3 class="menu-item-title">Creamy Wild Mushroom Soup</h3>
-            <span class="menu-item-price">Le 140</span>
+            <div class="menu-item-title-block">
+              <h3 class="menu-item-title">Creamy Wild Mushroom Soup</h3>
+            </div>
+            <span class="menu-item-price">140 LE</span>
           </div>
           <p class="menu-item-desc">A rich purée of sautéed forest mushrooms and thyme, simmered with fresh cream and finished with white truffle oil.</p>
           <div class="menu-item-footer">
@@ -919,8 +1820,10 @@
         </div>
         <div class="menu-item">
           <div class="menu-item-header">
-            <h3 class="menu-item-title">Traditional Lentil Soup</h3>
-            <span class="menu-item-price">Le 120</span>
+            <div class="menu-item-title-block">
+              <h3 class="menu-item-title">Traditional Lentil Soup</h3>
+            </div>
+            <span class="menu-item-price">120 LE</span>
           </div>
           <p class="menu-item-desc">Rich red lentils slow-simmered with cumin, garlic, and fresh vegetables, served with crispy fried pita wedges and lemon.</p>
           <div class="menu-item-footer">
@@ -943,22 +1846,28 @@
       <div class="menu-list">
         <div class="menu-item">
           <div class="menu-item-header">
-            <h3 class="menu-item-title">The Mamba Burger</h3>
-            <span class="menu-item-price">Le 260</span>
+            <div class="menu-item-title-block">
+              <h3 class="menu-item-title">The Mamba Burger</h3>
+            </div>
+            <span class="menu-item-price">260 LE</span>
           </div>
           <p class="menu-item-desc">8oz house-ground Angus beef patty, sharp cheddar cheese, caramelized onions, heirloom tomato, lettuce, and our house Mamba sauce on toasted brioche.</p>
         </div>
         <div class="menu-item">
           <div class="menu-item-header">
-            <h3 class="menu-item-title">Truffle Mushroom Burger</h3>
-            <span class="menu-item-price">Le 280</span>
+            <div class="menu-item-title-block">
+              <h3 class="menu-item-title">Truffle Mushroom Burger</h3>
+            </div>
+            <span class="menu-item-price">280 LE</span>
           </div>
           <p class="menu-item-desc">8oz Angus beef patty topped with melted Swiss cheese, sautéed wild forest mushrooms, and velvety black truffle aioli.</p>
         </div>
         <div class="menu-item">
           <div class="menu-item-header">
-            <h3 class="menu-item-title">Spicy Crispy Chicken Burger</h3>
-            <span class="menu-item-price">Le 240</span>
+            <div class="menu-item-title-block">
+              <h3 class="menu-item-title">Spicy Crispy Chicken Burger</h3>
+            </div>
+            <span class="menu-item-price">240 LE</span>
           </div>
           <p class="menu-item-desc">Buttermilk-soaked fried chicken breast, spicy house coleslaw, dill pickles, and sriracha-mayo on a toasted bun.</p>
         </div>
@@ -974,22 +1883,28 @@
       <div class="menu-list">
         <div class="menu-item">
           <div class="menu-item-header">
-            <h3 class="menu-item-title">Traditional Cassava Leaf Stew</h3>
-            <span class="menu-item-price">Le 280</span>
+            <div class="menu-item-title-block">
+              <h3 class="menu-item-title">Traditional Cassava Leaf Stew</h3>
+            </div>
+            <span class="menu-item-price">280 LE</span>
           </div>
           <p class="menu-item-desc">Authentic Sierra Leonean stew of finely ground cassava leaves slow-cooked with palm oil, local fish, beef, and groundnut paste. Served with steamed rice.</p>
         </div>
         <div class="menu-item">
           <div class="menu-item-header">
-            <h3 class="menu-item-title">West African Jollof Rice</h3>
-            <span class="menu-item-price">Le 260</span>
+            <div class="menu-item-title-block">
+              <h3 class="menu-item-title">West African Jollof Rice</h3>
+            </div>
+            <span class="menu-item-price">260 LE</span>
           </div>
           <p class="menu-item-desc">Fragrant long-grain rice simmered in a spiced tomato and bell pepper base, served with charcoal-grilled quarter chicken and sweet fried plantain.</p>
         </div>
         <div class="menu-item">
           <div class="menu-item-header">
-            <h3 class="menu-item-title">Groundnut Peanut Stew</h3>
-            <span class="menu-item-price">Le 260</span>
+            <div class="menu-item-title-block">
+              <h3 class="menu-item-title">Groundnut Peanut Stew</h3>
+            </div>
+            <span class="menu-item-price">260 LE</span>
           </div>
           <p class="menu-item-desc">A rich, comforting West African peanut sauce with sweet potatoes, okra, and tender beef. Served with white rice.</p>
           <div class="menu-item-footer">
@@ -1010,8 +1925,10 @@
       <div class="menu-list">
         <div class="menu-item">
           <div class="menu-item-header">
-            <h3 class="menu-item-title">Warm Chocolate Fondant</h3>
-            <span class="menu-item-price">Le 160</span>
+            <div class="menu-item-title-block">
+              <h3 class="menu-item-title">Warm Chocolate Fondant</h3>
+            </div>
+            <span class="menu-item-price">160 LE</span>
           </div>
           <p class="menu-item-desc">Decadent chocolate cake with a velvety molten chocolate center, served with a scoop of Madagascar vanilla bean gelato.</p>
           <div class="menu-item-footer">
@@ -1022,8 +1939,10 @@
         </div>
         <div class="menu-item">
           <div class="menu-item-header">
-            <h3 class="menu-item-title">Artisanal Baklava</h3>
-            <span class="menu-item-price">Le 130</span>
+            <div class="menu-item-title-block">
+              <h3 class="menu-item-title">Artisanal Baklava</h3>
+            </div>
+            <span class="menu-item-price">130 LE</span>
           </div>
           <p class="menu-item-desc">Crispy layers of golden phyllo pastry filled with chopped pistachios and walnuts, sweetened with orange blossom honey syrup.</p>
           <div class="menu-item-footer">
@@ -1034,8 +1953,10 @@
         </div>
         <div class="menu-item">
           <div class="menu-item-header">
-            <h3 class="menu-item-title">New York style Cheesecake</h3>
-            <span class="menu-item-price">Le 150</span>
+            <div class="menu-item-title-block">
+              <h3 class="menu-item-title">New York style Cheesecake</h3>
+            </div>
+            <span class="menu-item-price">150 LE</span>
           </div>
           <p class="menu-item-desc">Rich and velvety baked cheesecake on a buttery Graham cracker crust, topped with fresh wild strawberry compote.</p>
           <div class="menu-item-footer">
@@ -1056,8 +1977,10 @@
       <div class="menu-list">
         <div class="menu-item">
           <div class="menu-item-header">
-            <h3 class="menu-item-title">Mamba Point Signature Mocktail</h3>
-            <span class="menu-item-price">Le 90</span>
+            <div class="menu-item-title-block">
+              <h3 class="menu-item-title">Mamba Point Signature Mocktail</h3>
+            </div>
+            <span class="menu-item-price">90 LE</span>
           </div>
           <p class="menu-item-desc">A refreshing, ice-cold blend of local passionfruit, fresh lime, garden mint, topped with ginger ale.</p>
           <div class="menu-item-footer">
@@ -1070,8 +1993,10 @@
         </div>
         <div class="menu-item">
           <div class="menu-item-header">
-            <h3 class="menu-item-title">Double Espresso</h3>
-            <span class="menu-item-price">Le 50</span>
+            <div class="menu-item-title-block">
+              <h3 class="menu-item-title">Double Espresso</h3>
+            </div>
+            <span class="menu-item-price">50 LE</span>
           </div>
           <p class="menu-item-desc">Double shot of aromatic Italian espresso made with freshly ground premium Arabica coffee beans.</p>
           <div class="menu-item-footer">
@@ -1084,8 +2009,10 @@
         </div>
         <div class="menu-item">
           <div class="menu-item-header">
-            <h3 class="menu-item-title">San Pellegrino (750ml)</h3>
-            <span class="menu-item-price">Le 80</span>
+            <div class="menu-item-title-block">
+              <h3 class="menu-item-title">San Pellegrino (750ml)</h3>
+            </div>
+            <span class="menu-item-price">80 LE</span>
           </div>
           <p class="menu-item-desc">Imported Italian sparkling natural mineral water, perfect for palate cleansing.</p>
           <div class="menu-item-footer">
@@ -1098,8 +2025,10 @@
         </div>
         <div class="menu-item">
           <div class="menu-item-header">
-            <h3 class="menu-item-title">Heineken Lager</h3>
-            <span class="menu-item-price">Le 70</span>
+            <div class="menu-item-title-block">
+              <h3 class="menu-item-title">Heineken Lager</h3>
+            </div>
+            <span class="menu-item-price">70 LE</span>
           </div>
           <p class="menu-item-desc">Chilled, premium imported European light lager beer.</p>
         </div>
@@ -1115,6 +2044,9 @@
 
   <!-- FLOATING ACTION BUTTON -->
   <button class="pay-fab" id="payFab" aria-label="Open payment checkout modal">
+    <svg class="pay-fab-icon" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/>
+    </svg>
     <span>💳 PAY BILL</span>
   </button>
 
@@ -1125,12 +2057,11 @@
       <button class="close-btn" id="closeBtn" aria-label="Close checkout modal">✕ Close</button>
     </div>
     <div class="modal-body">
-      <!-- The payment iframe targets Lagoonda's Flot payment page -->
       <iframe class="modal-iframe" id="checkoutIframe" src="" data-src="https://pay.flotme.ai/lagoonda" allow="payment" title="Flot Checkout Portal"></iframe>
     </div>
   </div>
 
-  <!-- VANILLA JAVASCRIPT LOGIC -->
+  <!-- JAVASCRIPT FOR DYNAMIC INTERACTIVE BEHAVIOR -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       // DOM Elements
@@ -1149,7 +2080,7 @@
 
       // 1. INLINE CHECKOUT MODAL LOGIC
       payFab.addEventListener('click', () => {
-        // Performance optimization: only load iframe source when clicked
+        // Load iframe source lazily on click
         if (!iframe.getAttribute('src')) {
           iframe.setAttribute('src', iframe.getAttribute('data-src'));
         }
@@ -1157,7 +2088,7 @@
         checkoutModal.classList.add('active');
         checkoutModal.setAttribute('aria-hidden', 'false');
         
-        // Prevent background scrolling while checkout is open
+        // Prevent background scrolling
         document.body.style.overflow = 'hidden';
       });
 
@@ -1169,7 +2100,7 @@
         document.body.style.overflow = '';
       });
 
-      // 2. SEARCH LOGIC
+      // 2. SEARCH ENGINE LOGIC
       searchInput.addEventListener('input', (e) => {
         const query = e.target.value.toLowerCase().trim();
         let totalVisibleItems = 0;
@@ -1181,8 +2112,9 @@
           sectionItems.forEach(item => {
             const title = item.querySelector('.menu-item-title').textContent.toLowerCase();
             const desc = item.querySelector('.menu-item-desc') ? item.querySelector('.menu-item-desc').textContent.toLowerCase() : '';
+            const number = item.querySelector('.item-number') ? item.querySelector('.item-number').textContent.toLowerCase() : '';
             
-            if (title.includes(query) || desc.includes(query)) {
+            if (title.includes(query) || desc.includes(query) || number.includes(query)) {
               item.style.display = '';
               visibleInSection++;
               totalVisibleItems++;
@@ -1191,7 +2123,7 @@
             }
           });
 
-          // Show or hide section depending on matches
+          // Toggle section visibility based on match count
           if (visibleInSection > 0) {
             section.style.display = '';
           } else {
@@ -1199,7 +2131,7 @@
           }
         });
 
-        // Show empty state if no matches
+        // Toggle empty search screen
         if (totalVisibleItems === 0) {
           emptySearchState.classList.add('visible');
         } else {
@@ -1207,13 +2139,13 @@
         }
       });
 
-      // 3. CATEGORY SCROLL TRACKING & SMOOTH SCROLLING
+      // 3. SCROLL SPY & AUTO-CENTER TABS LOGIC
       function setActiveTab(tabId) {
         tabs.forEach(tab => {
           if (tab.getAttribute('href') === `#${tabId}`) {
             tab.classList.add('active');
             
-            // Premium micro-interaction: Auto-center the active tab in the scroll viewport
+            // Auto-center the active tab horizontally in the category nav bar
             const containerWidth = scrollContainer.offsetWidth;
             const tabLeft = tab.offsetLeft;
             const tabWidth = tab.offsetWidth;
@@ -1227,7 +2159,7 @@
         });
       }
 
-      // Smooth scroll on tab click
+      // Smooth scroll triggers on clicking navigation tabs
       tabs.forEach(tab => {
         tab.addEventListener('click', (e) => {
           e.preventDefault();
@@ -1235,25 +2167,24 @@
           const targetSection = document.getElementById(id);
           
           if (targetSection) {
-            const yOffset = -58; // Offsetting sticky navigation bar height
+            const yOffset = -68; // Adjust to sticky navigation bar height
             const y = targetSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
             window.scrollTo({ top: y, behavior: 'smooth' });
             
-            // Set active immediately to feel responsive
             setActiveTab(id);
           }
         });
       });
 
-      // Intersection Observer for scroll tracking
+      // Intersection Observer setup for scroll spy tracking
       const observerOptions = {
         root: null,
-        rootMargin: '-80px 0px -75% 0px', // Adjusted trigger point
+        rootMargin: '-80px 0px -75% 0px',
         threshold: 0
       };
 
       const observer = new IntersectionObserver((entries) => {
-        // Avoid scroll-sync trigger conflicts during manual query search
+        // Skip updating active tabs if search filter is active
         if (searchInput.value.trim() !== '') return;
 
         entries.forEach(entry => {
