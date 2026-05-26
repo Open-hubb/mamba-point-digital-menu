@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Cape Leisure Club - Mamba Point | Digital Menu</title>
+  <meta name="description" content="Browse the digital menu for Cape Leisure Club - Mamba Point. Experience our selection of Starters, Lebanese Mezza, Charcoal Grills, Burgers, and African dishes. Settle your bill instantly.">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  
+  <style>
+    /* DESIGN SYSTEM & VISUAL SPECIFICATION */
+    :root {
+      --bg: #FFFFFF;
+      --surface: #FAFAFA;
+      --text-primary: #111111;
+      --text-muted: #666666;
+      --border: #EAEAEA;
+      --accent: #111111;
+      
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      background-color: var(--bg);
+    }
+
+    /* TYPOGRAPHY */
+    h1, h2, h3, h4 {
+      font-weight: 400;
+      color: var(--text-primary);
+    }
+
+    p {
+      color: var(--text-muted);
+    }
+
+    /* HEADER BLOCK */
+    .header {
+      padding: 48px 24px 24px 24px;
+      text-align: center;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-logo-container {
+      margin-bottom: 16px;
+    }
+
+    .header-logo {
+      max-height: 70px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .brand-title {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      line-height: 1.2;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .brand-subtitle {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      font-style: italic;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .tin-number {
+      font-weight: 500;
+      letter-spacing: 0.1em;
+    }
+
+    .phone-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-primary);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 6px 12px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: var(--surface);
+      transition: all 0.2s ease;
+    }
+
+    .phone-link:hover {
+      background: #f0f0f0;
+      border-color: #d1d1d1;
+    }
+
+    .phone-icon {
+      width: 14px;
+      height: 14px;
+    }
+
+    /* SEARCH BAR (MINIMALIST) */
+    .search-container {
+      max-width: 600px;
+      margin: 24px auto 0 auto;
+      padding: 0 16px;
+    }
+
+    .search-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 12px 16px 12px 40px;
+      font-family: var(--font-sans);
+      font-size: 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+      color: var(--text-primary);
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .search-input:focus {
+      background: var(--bg);
+      border-color: var(--text-primary);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 16px;
+      height: 16px;
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    /* CATEGORY NAVIGATION */
+    .category-nav {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      width: 100%;
+    }
+
+    .category-nav-scroll {
+      display: flex;
+      overflow-x: auto;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Firefox */
+      padding: 14px 16px;
+      gap: 20px;
+    }
+
+    .category-nav-scroll::-webkit-scrollbar {
+      display: none; /* Safari/Chrome */
+    }
+
+    .nav-tab {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--text-muted);
+      padding: 4px 0;
+      position: relative;
+      transition: color 0.2s ease;
+      cursor: pointer;
+    }
+
+    .nav-tab:hover {
+      color: var(--text-primary);
+    }
+
+    .nav-tab.active {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .nav-tab::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--text-primary);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav-tab.active::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    /* MENU GRID CONTAINER */
+    .menu-container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 16px 24px 140px 24px; /* Generous bottom padding for FAB & notch */
+    }
+
+    @supports (padding-bottom: env(safe-area-inset-bottom)) {
+      .menu-container {
+        padding-bottom: calc(140px + env(safe-area-inset-bottom));
+      }
+    }
+
+    /* MENU SECTION */
+    .menu-section {
+      scroll-margin-top: 60px; /* Offset for sticky nav bar */
+      padding-top: 16px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      margin: 40px 0 20px 0;
+      position: relative;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      background: var(--bg);
+      padding-right: 16px;
+      z-index: 2;
+    }
+
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background-color: var(--border);
+      z-index: 1;
+    }
+
+    .menu-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* MENU ITEM */
+    .menu-item {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+      transition: opacity 0.3s ease;
+    }
+
+    .menu-item:last-child {
+      border-bottom: none;
+    }
+
+    .menu-item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 6px;
+    }
+
+    .menu-item-title {
+      font-family: var(--font-sans);
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--text-primary);
+      margin-right: 16px;
+    }
+
+    .menu-item-price {
+      font-family: var(--font-sans);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-primary);
+      white-space: nowrap;
+    }
+
+    .menu-item-desc {
+      font-family: var(--font-sans);
+      font-size: 13.5px;
+      line-height: 1.5;
+      color: var(--text-muted);
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+
+    .menu-item-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .menu-item-tags {
+      display: flex;
+      gap: 6px;
+    }
+
+    .tag {
+      font-family: var(--font-sans);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      padding: 2px 6px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+
+    .tag-v {
+      background-color: #E8F5E9;
+      color: #2E7D32;
+    }
+
+    .tag-gf {
+      background-color: #FFF3E0;
+      color: #E65100;
+    }
+
+    .tag-vg {
+      background-color: #E0F2F1;
+      color: #004D40;
+    }
+
+    /* FLOATING ACTION BUTTON (FAB) */
+    .pay-fab {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 999;
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 16px 36px;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    @supports (bottom: env(safe-area-inset-bottom)) {
+      .pay-fab {
+        bottom: calc(24px + env(safe-area-inset-bottom));
+      }
+    }
+
+    .pay-fab:hover {
+      transform: translateX(-50%) translateY(-2px);
+      box-shadow: 0 14px 35px rgba(0,0,0,0.12);
+    }
+
+    .pay-fab:active {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .pay-fab span {
+      font-family: var(--font-sans);
+      color: #111111;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* MODAL POPUP ARCHITECTURE */
+    .checkout-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: var(--bg);
+      z-index: 10000;
+      display: flex;
+      flex-direction: column;
+      transform: translateY(100%);
+      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      visibility: hidden;
+    }
+
+    .checkout-modal.active {
+      transform: translateY(0);
+      visibility: visible;
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+      /* Account for top safe areas (notches) on newer phones */
+      padding-top: calc(16px + env(safe-area-inset-top, 0px));
+    }
+
+    .modal-title {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: var(--text-primary);
+      text-transform: uppercase;
+    }
+
+    .close-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-primary);
+      cursor: pointer;
+      padding: 8px 16px;
+      border-radius: 20px;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .close-btn:hover {
+      background: #f0f0f0;
+      border-color: #d1d1d1;
+    }
+
+    .modal-body {
+      flex: 1;
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      background: #FFF;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .modal-iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* EMPTY SEARCH STATE */
+    .empty-search-state {
+      display: none;
+      text-align: center;
+      padding: 48px 16px;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .empty-search-state.visible {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER BLOCK -->
+  <header class="header" id="menuHeader">
+    <div class="header-logo-container">
+      <img src="./images-removebg-preview.png" alt="Cape Leisure Club Logo" class="header-logo" id="headerLogo">
+    </div>
+    <h1 class="brand-title">Cape Leisure Club</h1>
+    <p class="brand-subtitle">Mamba Point</p>
+    <div class="brand-meta">
+      <span class="tin-number" id="tinNumber">TIN# 1000003124</span>
+      <a href="tel:099100100" class="phone-link" id="phoneLink">
+        <svg class="phone-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/>
+        </svg>
+        099100100
+      </a>
+    </div>
+  </header>
+
+  <!-- SEARCH BAR -->
+  <div class="search-container">
+    <div class="search-wrapper">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <input type="text" class="search-input" id="searchInput" placeholder="Search our menu..." aria-label="Search menu items">
+    </div>
+  </div>
+
+  <!-- CATEGORY NAVIGATION -->
+  <nav class="category-nav" id="categoryNav">
+    <div class="category-nav-scroll" id="categoryNavScroll">
+      <a href="#starters" class="nav-tab active" id="tab-starters">Starters</a>
+      <a href="#salads" class="nav-tab" id="tab-salads">Salads</a>
+      <a href="#main-course" class="nav-tab" id="tab-main-course">Main Course</a>
+      <a href="#cold-mezza" class="nav-tab" id="tab-cold-mezza">Cold Mezza</a>
+      <a href="#hot-mezza" class="nav-tab" id="tab-hot-mezza">Hot Mezza</a>
+      <a href="#charcoal-grilled-platter" class="nav-tab" id="tab-charcoal-grilled-platter">Grills</a>
+      <a href="#cape-sandwiches" class="nav-tab" id="tab-cape-sandwiches">Sandwiches</a>
+      <a href="#soups" class="nav-tab" id="tab-soups">Soups</a>
+      <a href="#burger-section" class="nav-tab" id="tab-burger-section">Burgers</a>
+      <a href="#african-dish" class="nav-tab" id="tab-african-dish">African</a>
+      <a href="#pastry-desserts" class="nav-tab" id="tab-pastry-desserts">Desserts</a>
+      <a href="#beverages-italian-bar" class="nav-tab" id="tab-beverages-italian-bar">Beverages</a>
+    </div>
+  </nav>
+
+  <!-- MENU GRID / LIST -->
+  <main class="menu-container" id="menuContainer">
+    
+    <!-- STARTERS -->
+    <section class="menu-section" id="starters">
+      <div class="section-header">
+        <h2 class="section-title">Starters</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="menu-list">
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Truffle Fries</h3>
+            <span class="menu-item-price">Le 140</span>
+          </div>
+          <p class="menu-item-desc">Golden crispy hand-cut potatoes tossed in white truffle oil, grated Parmigiano-Reggiano, and fresh parsley.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-v">V</span>
+              <span class="tag tag-gf">GF</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Crispy Calamari</h3>
+            <span class="menu-item-price">Le 210</span>
+          </div>
+          <p class="menu-item-desc">Lightly dusted and golden fried calamari rings served with house-made citrus herb aioli and charred lemon wedges.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Edamame</h3>
+            <span class="menu-item-price">Le 95</span>
+          </div>
+          <p class="menu-item-desc">Steamed fresh soybean pods sprinkled with flaky Maldon sea salt.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-v">V</span>
+              <span class="tag tag-gf">GF</span>
+              <span class="tag tag-vg">VG</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SALADS -->
+    <section class="menu-section" id="salads">
+      <div class="section-header">
+        <h2 class="section-title">Salads</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="menu-list">
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Classic Caesar Salad</h3>
+            <span class="menu-item-price">Le 180</span>
+          </div>
+          <p class="menu-item-desc">Crisp romaine hearts, shaved parmigiano, oven-roasted garlic croutons, tossed in our rich house creamy Caesar dressing.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Quinoa & Avocado Bowl</h3>
+            <span class="menu-item-price">Le 220</span>
+          </div>
+          <p class="menu-item-desc">Organic white and red quinoa, ripe avocado, cherry tomatoes, English cucumbers, and fresh herbs with a lemon-herb dressing.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-v">V</span>
+              <span class="tag tag-gf">GF</span>
+              <span class="tag tag-vg">VG</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Burrata & Heirloom Tomato</h3>
+            <span class="menu-item-price">Le 240</span>
+          </div>
+          <p class="menu-item-desc">Creamy Italian burrata cheese, vibrant heirloom tomatoes, house-made basil pesto, and aged balsamic reduction.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-v">V</span>
+              <span class="tag tag-gf">GF</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN COURSE -->
+    <section class="menu-section" id="main-course">
+      <div class="section-header">
+        <h2 class="section-title">Main Course</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="menu-list">
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Grilled Atlantic Salmon</h3>
+            <span class="menu-item-price">Le 420</span>
+          </div>
+          <p class="menu-item-desc">Crisp pan-seared salmon fillet over butter-wilted spinach, creamy saffron risotto, and a delicate citrus-dill reduction.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-gf">GF</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Pan-Seared Prime Ribeye</h3>
+            <span class="menu-item-price">Le 580</span>
+          </div>
+          <p class="menu-item-desc">12oz prime beef ribeye grilled to order, served with truffle butter, roasted garlic mashed potatoes, and grilled asparagus.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-gf">GF</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Truffle Wild Mushroom Pasta</h3>
+            <span class="menu-item-price">Le 360</span>
+          </div>
+          <p class="menu-item-desc">Fettuccine tossed in a rich, velvety truffle cream sauce with sautéed wild forest mushrooms and fresh chives.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-v">V</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COLD MEZZA -->
+    <section class="menu-section" id="cold-mezza">
+      <div class="section-header">
+        <h2 class="section-title">Cold Mezza</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="menu-list">
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Traditional Hummus</h3>
+            <span class="menu-item-price">Le 130</span>
+          </div>
+          <p class="menu-item-desc">Smooth chickpea purée blended with premium tahini, garlic, and fresh lemon juice, finished with extra virgin olive oil and sumac.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-v">V</span>
+              <span class="tag tag-gf">GF</span>
+              <span class="tag tag-vg">VG</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Moutabbal (Baba Ghanoush)</h3>
+            <span class="menu-item-price">Le 140</span>
+          </div>
+          <p class="menu-item-desc">Smoky flame-grilled eggplant mashed with tahini, garlic, fresh lemon, drizzled with olive oil and pomegranate seeds.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-v">V</span>
+              <span class="tag tag-gf">GF</span>
+              <span class="tag tag-vg">VG</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Labneh with Garlic</h3>
+            <span class="menu-item-price">Le 120</span>
+          </div>
+          <p class="menu-item-desc">Thick, creamy strained Lebanese yogurt infused with garlic, dried mint, and extra virgin olive oil.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-v">V</span>
+              <span class="tag tag-gf">GF</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Tabbouleh</h3>
+            <span class="menu-item-price">Le 130</span>
+          </div>
+          <p class="menu-item-desc">Finely chopped Italian parsley, mint leaves, tomatoes, and red onions with cracked bulgur, dressed with lemon oil.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-v">V</span>
+              <span class="tag tag-vg">VG</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOT MEZZA -->
+    <section class="menu-section" id="hot-mezza">
+      <div class="section-header">
+        <h2 class="section-title">Hot Mezza</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="menu-list">
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Kibbeh Croquettes</h3>
+            <span class="menu-item-price">Le 160</span>
+          </div>
+          <p class="menu-item-desc">Crispy bulgur wheat shells filled with seasoned minced beef, pine nuts, and traditional spices, served with yogurt dip.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Falafel</h3>
+            <span class="menu-item-price">Le 130</span>
+          </div>
+          <p class="menu-item-desc">Golden-fried spiced chickpea and fava bean patties served with pickles, tomatoes, and home-made tahini dressing.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-v">V</span>
+              <span class="tag tag-gf">GF</span>
+              <span class="tag tag-vg">VG</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Sambousek Cheese</h3>
+            <span class="menu-item-price">Le 140</span>
+          </div>
+          <p class="menu-item-desc">Crispy golden pastry pockets filled with a warm, melted blend of Lebanese white cheeses and parsley.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-v">V</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Batata Harra</h3>
+            <span class="menu-item-price">Le 120</span>
+          </div>
+          <p class="menu-item-desc">Spicy cubes of crispy fried potato tossed in coriander, garlic, chili paste, and fresh lemon juice.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-v">V</span>
+              <span class="tag tag-gf">GF</span>
+              <span class="tag tag-vg">VG</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHARCOAL GRILLED PLATTER -->
+    <section class="menu-section" id="charcoal-grilled-platter">
+      <div class="section-header">
+        <h2 class="section-title">Charcoal Grilled Platter</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="menu-list">
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Mixed Grill Platter</h3>
+            <span class="menu-item-price">Le 520</span>
+          </div>
+          <p class="menu-item-desc">An assortment of Shish Taouk, Beef Kabab, and Kafta skewers grilled over natural wood coals. Served with garlic paste and grilled vegetables.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Shish Taouk Skewers</h3>
+            <span class="menu-item-price">Le 340</span>
+          </div>
+          <p class="menu-item-desc">Skewers of tender, yogurt-and-lemon marinated chicken breast grilled over charcoal, served with our signature garlic whip.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-gf">GF</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Beef Kafta Skewers</h3>
+            <span class="menu-item-price">Le 360</span>
+          </div>
+          <p class="menu-item-desc">Charcoal-grilled skewers of seasoned premium ground beef blended with onions, fresh parsley, and Arabic spices.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Grilled Lamb Chops</h3>
+            <span class="menu-item-price">Le 480</span>
+          </div>
+          <p class="menu-item-desc">Prime tender lamb chops marinated in garlic and wild rosemary, flame-grilled and served with roasted baby potatoes.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-gf">GF</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAPE SANDWICHES -->
+    <section class="menu-section" id="cape-sandwiches">
+      <div class="section-header">
+        <h2 class="section-title">Cape Sandwiches</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="menu-list">
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Cape Club Sandwich</h3>
+            <span class="menu-item-price">Le 220</span>
+          </div>
+          <p class="menu-item-desc">Triple-decker toasted bread with flame-grilled chicken, crispy beef bacon, fried egg, lettuce, ripe tomato, and garlic mayonnaise.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Chicken Shawarma Wrap</h3>
+            <span class="menu-item-price">Le 190</span>
+          </div>
+          <p class="menu-item-desc">Thinly sliced marinated chicken shawarma, garlic paste, and wild cucumber pickles wrapped in fresh thin flatbread.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Tenderloin Steak Sandwich</h3>
+            <span class="menu-item-price">Le 280</span>
+          </div>
+          <p class="menu-item-desc">Grilled beef tenderloin strips, caramelized onions, sautéed mushrooms, provolone cheese, and dijonnaise on a warm baguette.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOUPS -->
+    <section class="menu-section" id="soups">
+      <div class="section-header">
+        <h2 class="section-title">Soups</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="menu-list">
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Creamy Wild Mushroom Soup</h3>
+            <span class="menu-item-price">Le 140</span>
+          </div>
+          <p class="menu-item-desc">A rich purée of sautéed forest mushrooms and thyme, simmered with fresh cream and finished with white truffle oil.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-v">V</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Traditional Lentil Soup</h3>
+            <span class="menu-item-price">Le 120</span>
+          </div>
+          <p class="menu-item-desc">Rich red lentils slow-simmered with cumin, garlic, and fresh vegetables, served with crispy fried pita wedges and lemon.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-v">V</span>
+              <span class="tag tag-gf">GF</span>
+              <span class="tag tag-vg">VG</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BURGER SECTION -->
+    <section class="menu-section" id="burger-section">
+      <div class="section-header">
+        <h2 class="section-title">Burger Section</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="menu-list">
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">The Mamba Burger</h3>
+            <span class="menu-item-price">Le 260</span>
+          </div>
+          <p class="menu-item-desc">8oz house-ground Angus beef patty, sharp cheddar cheese, caramelized onions, heirloom tomato, lettuce, and our house Mamba sauce on toasted brioche.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Truffle Mushroom Burger</h3>
+            <span class="menu-item-price">Le 280</span>
+          </div>
+          <p class="menu-item-desc">8oz Angus beef patty topped with melted Swiss cheese, sautéed wild forest mushrooms, and velvety black truffle aioli.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Spicy Crispy Chicken Burger</h3>
+            <span class="menu-item-price">Le 240</span>
+          </div>
+          <p class="menu-item-desc">Buttermilk-soaked fried chicken breast, spicy house coleslaw, dill pickles, and sriracha-mayo on a toasted bun.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- AFRICAN DISH -->
+    <section class="menu-section" id="african-dish">
+      <div class="section-header">
+        <h2 class="section-title">African Dish</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="menu-list">
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Traditional Cassava Leaf Stew</h3>
+            <span class="menu-item-price">Le 280</span>
+          </div>
+          <p class="menu-item-desc">Authentic Sierra Leonean stew of finely ground cassava leaves slow-cooked with palm oil, local fish, beef, and groundnut paste. Served with steamed rice.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">West African Jollof Rice</h3>
+            <span class="menu-item-price">Le 260</span>
+          </div>
+          <p class="menu-item-desc">Fragrant long-grain rice simmered in a spiced tomato and bell pepper base, served with charcoal-grilled quarter chicken and sweet fried plantain.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Groundnut Peanut Stew</h3>
+            <span class="menu-item-price">Le 260</span>
+          </div>
+          <p class="menu-item-desc">A rich, comforting West African peanut sauce with sweet potatoes, okra, and tender beef. Served with white rice.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-gf">GF</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PASTRY / DESSERTS -->
+    <section class="menu-section" id="pastry-desserts">
+      <div class="section-header">
+        <h2 class="section-title">Pastry / Desserts</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="menu-list">
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Warm Chocolate Fondant</h3>
+            <span class="menu-item-price">Le 160</span>
+          </div>
+          <p class="menu-item-desc">Decadent chocolate cake with a velvety molten chocolate center, served with a scoop of Madagascar vanilla bean gelato.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-v">V</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Artisanal Baklava</h3>
+            <span class="menu-item-price">Le 130</span>
+          </div>
+          <p class="menu-item-desc">Crispy layers of golden phyllo pastry filled with chopped pistachios and walnuts, sweetened with orange blossom honey syrup.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-v">V</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">New York style Cheesecake</h3>
+            <span class="menu-item-price">Le 150</span>
+          </div>
+          <p class="menu-item-desc">Rich and velvety baked cheesecake on a buttery Graham cracker crust, topped with fresh wild strawberry compote.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-v">V</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BEVERAGES / ITALIAN BAR -->
+    <section class="menu-section" id="beverages-italian-bar">
+      <div class="section-header">
+        <h2 class="section-title">Beverages / Italian Bar</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="menu-list">
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Mamba Point Signature Mocktail</h3>
+            <span class="menu-item-price">Le 90</span>
+          </div>
+          <p class="menu-item-desc">A refreshing, ice-cold blend of local passionfruit, fresh lime, garden mint, topped with ginger ale.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-v">V</span>
+              <span class="tag tag-gf">GF</span>
+              <span class="tag tag-vg">VG</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Double Espresso</h3>
+            <span class="menu-item-price">Le 50</span>
+          </div>
+          <p class="menu-item-desc">Double shot of aromatic Italian espresso made with freshly ground premium Arabica coffee beans.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-v">V</span>
+              <span class="tag tag-gf">GF</span>
+              <span class="tag tag-vg">VG</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">San Pellegrino (750ml)</h3>
+            <span class="menu-item-price">Le 80</span>
+          </div>
+          <p class="menu-item-desc">Imported Italian sparkling natural mineral water, perfect for palate cleansing.</p>
+          <div class="menu-item-footer">
+            <div class="menu-item-tags">
+              <span class="tag tag-v">V</span>
+              <span class="tag tag-gf">GF</span>
+              <span class="tag tag-vg">VG</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Heineken Lager</h3>
+            <span class="menu-item-price">Le 70</span>
+          </div>
+          <p class="menu-item-desc">Chilled, premium imported European light lager beer.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EMPTY SEARCH STATE CONTAINER -->
+    <div class="empty-search-state" id="emptySearchState">
+      No items match your search term. Please try another query.
+    </div>
+
+  </main>
+
+  <!-- FLOATING ACTION BUTTON -->
+  <button class="pay-fab" id="payFab" aria-label="Open payment checkout modal">
+    <span>💳 PAY BILL</span>
+  </button>
+
+  <!-- FULL-VIEWPORT MODAL OVERLAY -->
+  <div class="checkout-modal" id="checkoutModal" aria-hidden="true" role="dialog">
+    <div class="modal-header">
+      <span class="modal-title">Cape Leisure Club Checkout</span>
+      <button class="close-btn" id="closeBtn" aria-label="Close checkout modal">✕ Close</button>
+    </div>
+    <div class="modal-body">
+      <!-- The payment iframe targets Lagoonda's Flot payment page -->
+      <iframe class="modal-iframe" id="checkoutIframe" src="" data-src="https://pay.flotme.ai/lagoonda" allow="payment" title="Flot Checkout Portal"></iframe>
+    </div>
+  </div>
+
+  <!-- VANILLA JAVASCRIPT LOGIC -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // DOM Elements
+      const payFab = document.getElementById('payFab');
+      const checkoutModal = document.getElementById('checkoutModal');
+      const closeBtn = document.getElementById('closeBtn');
+      const iframe = document.getElementById('checkoutIframe');
+      
+      const searchInput = document.getElementById('searchInput');
+      const menuItems = document.querySelectorAll('.menu-item');
+      const menuSections = document.querySelectorAll('.menu-section');
+      const emptySearchState = document.getElementById('emptySearchState');
+      
+      const tabs = document.querySelectorAll('.nav-tab');
+      const scrollContainer = document.getElementById('categoryNavScroll');
+
+      // 1. INLINE CHECKOUT MODAL LOGIC
+      payFab.addEventListener('click', () => {
+        // Performance optimization: only load iframe source when clicked
+        if (!iframe.getAttribute('src')) {
+          iframe.setAttribute('src', iframe.getAttribute('data-src'));
+        }
+        
+        checkoutModal.classList.add('active');
+        checkoutModal.setAttribute('aria-hidden', 'false');
+        
+        // Prevent background scrolling while checkout is open
+        document.body.style.overflow = 'hidden';
+      });
+
+      closeBtn.addEventListener('click', () => {
+        checkoutModal.classList.remove('active');
+        checkoutModal.setAttribute('aria-hidden', 'true');
+        
+        // Restore background scrolling
+        document.body.style.overflow = '';
+      });
+
+      // 2. SEARCH LOGIC
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        let totalVisibleItems = 0;
+
+        menuSections.forEach(section => {
+          const sectionItems = section.querySelectorAll('.menu-item');
+          let visibleInSection = 0;
+
+          sectionItems.forEach(item => {
+            const title = item.querySelector('.menu-item-title').textContent.toLowerCase();
+            const desc = item.querySelector('.menu-item-desc') ? item.querySelector('.menu-item-desc').textContent.toLowerCase() : '';
+            
+            if (title.includes(query) || desc.includes(query)) {
+              item.style.display = '';
+              visibleInSection++;
+              totalVisibleItems++;
+            } else {
+              item.style.display = 'none';
+            }
+          });
+
+          // Show or hide section depending on matches
+          if (visibleInSection > 0) {
+            section.style.display = '';
+          } else {
+            section.style.display = 'none';
+          }
+        });
+
+        // Show empty state if no matches
+        if (totalVisibleItems === 0) {
+          emptySearchState.classList.add('visible');
+        } else {
+          emptySearchState.classList.remove('visible');
+        }
+      });
+
+      // 3. CATEGORY SCROLL TRACKING & SMOOTH SCROLLING
+      function setActiveTab(tabId) {
+        tabs.forEach(tab => {
+          if (tab.getAttribute('href') === `#${tabId}`) {
+            tab.classList.add('active');
+            
+            // Premium micro-interaction: Auto-center the active tab in the scroll viewport
+            const containerWidth = scrollContainer.offsetWidth;
+            const tabLeft = tab.offsetLeft;
+            const tabWidth = tab.offsetWidth;
+            scrollContainer.scrollTo({
+              left: tabLeft - (containerWidth / 2) + (tabWidth / 2),
+              behavior: 'smooth'
+            });
+          } else {
+            tab.classList.remove('active');
+          }
+        });
+      }
+
+      // Smooth scroll on tab click
+      tabs.forEach(tab => {
+        tab.addEventListener('click', (e) => {
+          e.preventDefault();
+          const id = tab.getAttribute('href').substring(1);
+          const targetSection = document.getElementById(id);
+          
+          if (targetSection) {
+            const yOffset = -58; // Offsetting sticky navigation bar height
+            const y = targetSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+            
+            // Set active immediately to feel responsive
+            setActiveTab(id);
+          }
+        });
+      });
+
+      // Intersection Observer for scroll tracking
+      const observerOptions = {
+        root: null,
+        rootMargin: '-80px 0px -75% 0px', // Adjusted trigger point
+        threshold: 0
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        // Avoid scroll-sync trigger conflicts during manual query search
+        if (searchInput.value.trim() !== '') return;
+
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            setActiveTab(id);
+          }
+        });
+      }, observerOptions);
+
+      menuSections.forEach(section => observer.observe(section));
+    });
+  </script>
+</body>
+</html>
