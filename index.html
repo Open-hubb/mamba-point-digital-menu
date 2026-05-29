@@ -2094,23 +2094,27 @@
       });
 
       // Pay bill modal
-      function openCheckout() {
-        if (!iframe.getAttribute('src')) iframe.setAttribute('src', iframe.getAttribute('data-src'));
+      function openCheckout(amount) {
+        const base = iframe.getAttribute('data-src');
+        const url = amount ? base + '?amount=' + amount + '&editable=false' : base;
+        iframe.setAttribute('src', url);
         checkoutModal.classList.add('active');
         checkoutModal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
       }
 
-      payFab.addEventListener('click', openCheckout);
+      payFab.addEventListener('click', () => openCheckout());
 
       document.getElementById('cartCheckoutBtn').addEventListener('click', () => {
+        const total = getCartTotal();
         closeCart();
-        setTimeout(openCheckout, 300);
+        setTimeout(() => openCheckout(total), 300);
       });
       closeBtn.addEventListener('click', () => {
         checkoutModal.classList.remove('active');
         checkoutModal.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
+        iframe.setAttribute('src', '');
       });
 
       // ACCORDION TOGGLE
