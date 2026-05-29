@@ -313,6 +313,18 @@
     .cart-total-label { font-family: var(--font-sans); font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-primary); }
     .cart-total-value { font-family: var(--font-serif); font-size: 22px; font-weight: 700; color: var(--accent-gold-dark); }
 
+    .cart-checkout-btn {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      width: 100%; margin-top: 14px; padding: 16px; border: none; border-radius: 14px;
+      background: var(--text-primary); color: #FFFFFF; cursor: pointer;
+      font-family: var(--font-sans); font-size: 14px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+    .cart-checkout-btn:hover { background: var(--accent-gold-dark); transform: translateY(-1px); box-shadow: 0 8px 25px rgba(197, 168, 128, 0.3); }
+    .cart-checkout-btn:active { transform: translateY(0); }
+    .cart-checkout-btn svg { width: 18px; height: 18px; }
     .cart-empty-msg {
       text-align: center; padding: 40px 24px; color: var(--text-muted);
       font-size: 14px; font-weight: 400;
@@ -1837,6 +1849,10 @@
         <span class="cart-total-label">Total</span>
         <span class="cart-total-value" id="cartTotalValue">0 LE</span>
       </div>
+      <button class="cart-checkout-btn" id="cartCheckoutBtn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
+        Pay Now
+      </button>
     </div>
   </div>
 
@@ -2071,11 +2087,18 @@
       });
 
       // Pay bill modal
-      payFab.addEventListener('click', () => {
+      function openCheckout() {
         if (!iframe.getAttribute('src')) iframe.setAttribute('src', iframe.getAttribute('data-src'));
         checkoutModal.classList.add('active');
         checkoutModal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
+      }
+
+      payFab.addEventListener('click', openCheckout);
+
+      document.getElementById('cartCheckoutBtn').addEventListener('click', () => {
+        closeCart();
+        setTimeout(openCheckout, 300);
       });
       closeBtn.addEventListener('click', () => {
         checkoutModal.classList.remove('active');
