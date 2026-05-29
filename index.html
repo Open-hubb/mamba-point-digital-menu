@@ -437,6 +437,17 @@
     }
     .empty-search-state.visible { display: block; }
 
+    /* FOOTER */
+    .site-footer {
+      text-align: center; padding: 24px; font-family: var(--font-sans);
+      font-size: 12px; color: var(--text-muted); letter-spacing: 0.04em;
+    }
+    .site-footer a {
+      color: var(--accent-gold-dark); text-decoration: none; font-weight: 600;
+      transition: color 0.2s ease;
+    }
+    .site-footer a:hover { color: var(--text-primary); }
+
     /* RESPONSIVE */
     @media (max-width: 400px) {
       .hero-banner { padding: 32px 16px 28px 16px; }
@@ -1852,6 +1863,10 @@
 
     <div class="empty-search-state" id="emptySearchState">No items match your search term. Please try another query.</div>
   </main>
+
+  <footer class="site-footer">
+    Powered by <a href="https://www.flotme.ai/business" target="_blank" rel="noopener noreferrer">Flot Business</a>
+  </footer>
 
   <!-- FLOATING CART BAR -->
   <button class="cart-fab" id="cartFab" aria-label="View your cart">
