@@ -4,7 +4,7 @@
     {
       "name": "menu",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["serve", "-l", "8090"],
+      "runtimeArgs": ["vercel", "dev", "--listen", "8090"],
       "port": 8090
     }
   ]
