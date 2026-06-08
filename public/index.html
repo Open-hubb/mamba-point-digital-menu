@@ -626,11 +626,19 @@
       const cart = new Map();
       let currency = 'LE';
 
-      // --- LOAD MENU DATA ---
+      // --- LOAD MENU DATA (API first, static fallback) ---
+      async function loadMenuData() {
+        try {
+          const res = await fetch('/api/menu');
+          if (res.ok) return await res.json();
+        } catch (e) { /* API unavailable, try fallback */ }
+        const fallback = await fetch('/menu_data.json');
+        if (fallback.ok) return await fallback.json();
+        throw new Error('No menu data available');
+      }
+
       try {
-        const res = await fetch('/api/menu');
-        if (!res.ok) throw new Error('Failed to load');
-        menuData = await res.json();
+        menuData = await loadMenuData();
         currency = menuData.branding.currency || 'LE';
         menuLoading.remove();
         renderBranding(menuData.branding);
