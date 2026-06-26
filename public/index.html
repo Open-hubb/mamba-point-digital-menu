@@ -501,6 +501,8 @@
       .close-btn { padding: 8px 14px; }
     }
   </style>
+  <!-- Flot dashboard Web Analytics tracker -->
+  <script defer src="https://dashboard.flotme.ai/api/public/tracker.js?id=25da80ad-9001-4451-b5ec-547c56f6c9d5"></script>
 </head>
 <body>
 <div class="page-wrapper">
@@ -626,12 +628,17 @@
       const cart = new Map();
       let currency = 'LE';
 
-      // --- LOAD MENU DATA (API first, static fallback) ---
+      // --- LOAD MENU DATA (Flot dashboard CMS first, then legacy API, then bundled file) ---
+      const DASHBOARD_MENU_API = 'https://dashboard.flotme.ai/api/public/menu/25da80ad-9001-4451-b5ec-547c56f6c9d5';
       async function loadMenuData() {
+        try {
+          const res = await fetch(DASHBOARD_MENU_API);
+          if (res.ok) return await res.json();
+        } catch (e) { /* dashboard unavailable, try legacy API */ }
         try {
           const res = await fetch('/api/menu');
           if (res.ok) return await res.json();
-        } catch (e) { /* API unavailable, try fallback */ }
+        } catch (e) { /* legacy API unavailable, try bundled file */ }
         const fallback = await fetch('/menu_data.json');
         if (fallback.ok) return await fallback.json();
         throw new Error('No menu data available');
