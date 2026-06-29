@@ -764,15 +764,12 @@
             return '<span class="tag ' + cls + '">' + t + '</span>';
           }).join('');
 
-          // Item number
-          const numHtml = item.itemNumber ? '<span class="item-number">' + escapeHtml(item.itemNumber) + '</span>' : '';
-
           // Description
           const descHtml = item.description ? '<p class="menu-item-desc">' + escapeHtml(item.description) + '</p>' : '';
 
           html += '<div class="menu-item" data-name="' + escapeAttr(item.name) + '" data-price="' + item.price + '">' +
             '<div class="menu-item-header">' +
-              '<div class="menu-item-title-block">' + numHtml +
+              '<div class="menu-item-title-block">' +
                 '<h3 class="menu-item-title">' + escapeHtml(item.name) + '</h3>' +
               '</div>' +
               '<span class="menu-item-price">' + formatPrice(item.price) + '</span>' +
