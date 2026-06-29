@@ -659,6 +659,24 @@
         return;
       }
 
+      // --- LIVE PREVIEW (Flot dashboard editor streams unsaved edits via postMessage) ---
+      if (window.parent !== window) {
+        window.addEventListener('message', function (e) {
+          if (e.origin !== 'https://dashboard.flotme.ai') return;
+          if (!e.data || e.data.source !== 'flot-dashboard' || e.data.type !== 'menu-preview' || !e.data.menu) return;
+          try {
+            menuData = e.data.menu;
+            currency = (menuData.branding && menuData.branding.currency) || 'LE';
+            renderBranding(menuData.branding);
+            renderGroups(menuData.groups);
+            renderSections(menuData.sections);
+            renderFooter(menuData.branding);
+            if (menuData.groups && menuData.groups[0]) switchGroup(menuData.groups[0].id);
+          } catch (err) { /* ignore malformed preview */ }
+        });
+        window.parent.postMessage({ source: 'flot-site', type: 'preview-ready' }, '*');
+      }
+
       // --- RENDER FUNCTIONS ---
 
       function renderBranding(b) {
